@@ -1,16 +1,98 @@
-<!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script src="" async defer></script>
-    </head>
-    <body>     
-        <h3>Home Page</h3>
-    </body>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortWriter - Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <h1>PortWriter</h1>
+        </div>
+
+        <div class="user-info">
+            <img src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg" alt="Foto de perfil" width="50" height="50">
+            <span>Olá, Luiza</span>
+        </div>
+    </header>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <ul class="menu">
+            <li><a href="#home">Feed</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="about">About</a></li>
+            <!--ideia de criação-->
+            <li><a href="#">Biblioteca</a></li>
+            
+        </ul>
+        <div class="search-bar">
+            <select name="filter">
+                <option value="todos">todos</option>
+                <!-- Outras opções -->
+            </select>
+            <input type="text" placeholder="busque um livro">
+        </div>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg" alt="Foto de perfil" width="50" height="50">
+                <h2>Luiza</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#">Adicionados</a></li>
+                <li><a href="#">Comentários</a></li>
+                <li><a href="#">Resenha</a></li>
+                <li><a href="#">Publicações</a></li>
+                <li><a href="#">Seguidores</a></li>
+                <li><a href="#">Autores</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Notícias</a></li>
+            </ul>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="post-box">
+                <textarea placeholder="comente, fale, diga o que está pensando"></textarea>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Publicar </button>
+                </form>
+                
+            </div>
+
+            <div class="post">
+                <h3> Gabriel Augusto publicou comentários sobre o livro:</h3>
+                <div class="book-info">
+                    <img src="https://m.media-amazon.com/images/I/81RQ4KJInTS._AC_UF1000,1000_QL80_.jpg" alt="A Elegância do Ouriço">
+                    <div>
+                        <h4>A Elegância Do Ouriço</h4>
+                        <p>de Muriel Barbery</p>
+                        <button>Ver mais</button>
+                      
+                    </div>
+                </div>
+                <div class="comments">
+                    <p><strong>Bruno :</strong> Livro incrível. Final triste.</p>
+                    <p><strong>Luciana :</strong> Gostei bastante, é um livro que te envolve depois de um certo ponto...</p>
+                </div>
+            </div>
+        </main>
+
+        
+    </div>
+</body>
 </html>
