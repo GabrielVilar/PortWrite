@@ -1,182 +1,130 @@
-
 body {
-    font-family: monospace, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-}
-
-header {
-    background-color: #77bcf1;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo h1 {
-    margin: 0;
-    font-size: 24px;
-    font-family: "Copperplate", cursive;
-}
-
-header .user-info span {
-    font-weight: bold;
-}
-
-nav {
-    background-color: #313131;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav .menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav .menu li {
-    margin-right: 15px;
-}
-
-nav .menu li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-}
-
-.search-bar select, .search-bar input {
-    margin-right: 10px;
-    padding: 5px;
 }
 
 .container {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
     display: flex;
-    margin: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Cor de fundo escura do cabeçalho */
+    padding: 10px 20px; /* Adicionei padding para espaçar o conteúdo dentro do cabeçalho */
+    
 }
 
-.sidebar {
-    width: 20%;
-    background-color: #77bcf1;
-    padding: 15px;
-}
-
-.sidebar .profile {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.sidebar .profile img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
-
-.sidebar .sidebar-menu {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar .sidebar-menu li {
-    margin-bottom: 10px;
-}
-
-.sidebar .sidebar-menu li a {
-    text-decoration: none;
-    color: #3a3a3a;
-}
-
-.content {
-    width: 60%;
-    padding: 0 20px;
-}
-
-.post-box {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.post-box textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-}
-
-.post-box button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #3a3a3a;
+.logo h1 {
+    margin: 0;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 20px; /* Ajuste do tamanho da fonte para corresponder à imagem */
 }
 
-.post {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.post h3 {
-    margin: 0 0 10px 0;
-}
-
-.book-info {
+.search-login {
     display: flex;
     align-items: center;
+    flex-grow: 1; /* Faz com que a barra de pesquisa ocupe o espaço restante */
+    margin-left: 250px; /* Espaço entre o logo e a barra de pesquisa */
+    
 }
 
-.book-info img {
-    width: 100px;
-    height: 150px;
-    margin-right: 15px;
-}
-
-.book-info div {
-    flex: 1;
-}
-
-.book-info button {
-    padding: 10px 15px;
-    background-color: #3a3a3a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.comments {
-    margin-top: 20px;
-}
-
-.comments p {
-    background-color: #f4e3d7;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.advertisement {
-    width: 20%;
-    text-align: center;
-}
-
-.advertisement img {
+.search-login input {
+    padding: 8px;
+    border: 1px solid #f2f0f0; /* Borda cinza escuro */
+    border-radius: 20px; /* Borda arredondada */
+    background-color: #fdfafa; /* Cor de fundo da barra de pesquisa */
     width: 100%;
+    max-width: 400px; /* Define a largura máxima da barra de pesquisa */
+    color: rgb(11, 10, 10);
+}
+
+.button {
+    padding: 8px 20px;
+    margin-left: 300px;
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    border: 1px solid #007bff;
+    border-radius: 20px; /* Borda arredondada do botão */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Outros estilos */
+.about-us {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #eef;
+    border-radius: 4px;
+}
+
+.about-us h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.about-us p {
+    margin: 0;
+    color: #555;
+}
+
+.feed h2 {
+    margin-top: 0;
+    color: #333333;
+    text-align: center;
+  
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os artigos */
+    gap: 20px;
+}
+
+.article {
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    overflow: hidden; /* Garante que a imagem e o conteúdo fiquem dentro dos limites do article */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px; /* Define a largura fixa dos artigos */
+}
+
+.image-placeholder {
+    background-color: #444;
+    width: 100%;
+    height: 200px; /* Ajuste para uma altura proporcional */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: auto;
+}
+
+.article-title {
+    background-color: #888;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
 }

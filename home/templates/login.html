@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="pt-BR">
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Login</title>
-   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-   <script src="{% static 'js/login.js' %}" defer></script>
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <script src="{% static 'js/login.js' %}" defer></script>
+</head>
 <body>
     <div class="login-container">
-        <h2>Login</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
-        
-            <label for="password">Senha:</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                <button type="button" id="togglePassword" class="eye-button">
-                    👁️
-                </button>
+        <div class="login-box">
+            <img src="{% static 'images/favicon.png' %}" alt="Ícone logo">
+            <h2>PortWriter</h2>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" value="">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <span id="togglePassword" class="eye-icon">👁️</span>
+                    
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot?</a>
+                </div>
+                <button type="submit">Login now</button>
+            </form>
+            <div class="signup-link">
+                <p>Don't Have An Account? <a href="singup">Sign Up</a></p>
             </div>
-            <button type="submit">Entrar</button>
-        </form>        
-    </div>    
+        </div>
+    </div>
+    <script src="login.js"></script>
 </body>
 </html>
