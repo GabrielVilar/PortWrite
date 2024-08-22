@@ -6,10 +6,7 @@ body {
 }
 
 .container {
-    width: 80%;
-    margin: auto;
     background-color: white;
-    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -17,42 +14,55 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333; /* Cor de fundo escura do cabeçalho */
-    padding: 10px 20px; /* Adicionei padding para espaçar o conteúdo dentro do cabeçalho */
-    
+    background-color: #333;
+    padding: 10px 20px;
 }
 
 .logo h1 {
     margin: 0;
     color: white;
-    font-size: 20px; /* Ajuste do tamanho da fonte para corresponder à imagem */
+    font-size: 20px;
 }
 
 .search-login {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Faz com que a barra de pesquisa ocupe o espaço restante */
-    margin-left: 250px; /* Espaço entre o logo e a barra de pesquisa */
-    
+
 }
 
-.search-login input {
-    padding: 8px;
-    border: 1px solid #f2f0f0; /* Borda cinza escuro */
-    border-radius: 20px; /* Borda arredondada */
-    background-color: #fdfafa; /* Cor de fundo da barra de pesquisa */
-    width: 100%;
-    max-width: 400px; /* Define a largura máxima da barra de pesquisa */
-    color: rgb(11, 10, 10);
+.search-container {
+    display: flex;
+    align-items: center;    
+    background-color: #fdfafa;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 1px solid #f2f0f0;
+    width: 400px;
+    margin-right: 20px; /* Add space between search and login button */
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    flex-grow: 1;
+    background: transparent;
+    color: #333;
+}
+
+.search-container .icon {
+    margin: 0 5px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
 
 .button {
     padding: 8px 20px;
-    margin-left: 300px;
     background-color: #007bff;
-    color: rgb(255, 255, 255);
+    color: white;
     border: 1px solid #007bff;
-    border-radius: 20px; /* Borda arredondada do botão */
+    border-radius: 20px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -61,8 +71,8 @@ header {
     background-color: #0056b3;
 }
 
+/* Segunda parte */
 
-/* Outros estilos */
 .about-us {
     margin-bottom: 20px;
     padding: 10px;

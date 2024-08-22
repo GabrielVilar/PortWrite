@@ -12,18 +12,18 @@
 <body>
     <div class="login-container">
         <div class="login-box">
-            <img src="{% static 'images/favicon.png' %}" alt="Ícone logo">
+            {% comment %} <img src="{% static 'images/favicon.png' %}" alt="Ícone logo" class="pencil-icon"> {% endcomment %}
             <h2>PortWriter</h2>
-            <form>
+            <form method="POST">
+                {% csrf_token %}
                 <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" value="">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password">
                     <span id="togglePassword" class="eye-icon">👁️</span>
-                    
                 </div>
                 <div class="forgot-password">
                     <a href="#">Forgot?</a>
@@ -35,6 +35,5 @@
             </div>
         </div>
     </div>
-    <script src="login.js"></script>
 </body>
 </html>

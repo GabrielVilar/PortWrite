@@ -25,6 +25,13 @@ body {
     width: 350px;
 }
 
+/* .pencil-icon {
+    position: absolute;
+    top: 20px; 
+    left: 30px; 
+    width: 30px; 
+} */
+
 .login-box h2 {
     margin-bottom: 30px;
     font-size: 24px;
@@ -43,7 +50,7 @@ body {
 }
 
 .input-group input {
-    width: 100%;
+    width: 93.5%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -64,7 +71,7 @@ body {
 }
 
 .forgot-password {
-    text-align: right;
+    text-align: left;
     margin-bottom: 20px;
 }
 
