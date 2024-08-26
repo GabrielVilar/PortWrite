@@ -1,15 +1,57 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sing Up</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script src="" async defer></script>
-    </head>
-    <body>        
-        <h3>Sing Up Page</h3>
-    </body>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+    <script src="{% static 'js/signup.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <div class="logo">
+                <img src="{% static 'images/favicon.png' %}" alt="PortWriter Logo">
+            </div>
+            <h1>Get Started With PortWriter</h1>
+            <form id="signupForm">
+
+                <div class="input-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Choose an authentic username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notifications" name="notifications" checked>
+                    <label for="notifications">Receber notificações por email</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Aceita termos de <a href="terms">política e privacidade</a></label>
+                </div>
+                <button type="submit">Create Account</button>
+            </form>
+            <p>have an account? <a href="login">Sign in!</a></p>
+        </div>
+    </div>
+
+</body>
 </html>
