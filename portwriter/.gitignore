@@ -1,0 +1,43 @@
+# Ignore the .env file
+.env
+
+# Ignore SQLite database file
+db.sqlite3
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Django migrations (optional, if you want to manage them locally)
+*/migrations/
+
+# Ignore compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+venv/
+env/
+.virtualenv/
+
+# Ignore log files
+*.log
+
+# Ignore media/uploads directory (if you want to keep it local)
+media/
+uploads/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor configurations
+.idea/
+.vscode/
+*.swp
+
+# Ignore static files generated during deployment (optional)
+staticfiles/
+
+# Ignore any other sensitive or unnecessary files
