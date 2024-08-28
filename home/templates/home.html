@@ -9,63 +9,72 @@
     <title>PortWriter - Home</title>
     <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{% static 'js/home.js' %}" defer></script>
 
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <nav class="navbar">
             <div class="logo">
-                <h1>PortWriter</h1>
+                <img src="{% static 'images/favicon.png' %}" alt="PortWriter Logo">
+                <span class ="namenav">PortWriter</span>
             </div>
-            <div class="search-login">
-                <div class="search-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
-                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
-                    </svg>
-                    <input type="text" placeholder="Search...">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                </div>
+            <div class="search">
+                <input type="text" placeholder="Search for...">
+                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg> </i></button>
+                  <button> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders2-vertical" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 10.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H3V1.5a.5.5 0 0 0-1 0V10H.5a.5.5 0 0 0-.5.5M2.5 12a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5m3-6.5A.5.5 0 0 0 6 6h1.5v8.5a.5.5 0 0 0 1 0V6H10a.5.5 0 0 0 0-1H6a.5.5 0 0 0-.5.5M8 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2A.5.5 0 0 0 8 1m3 9.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H14V1.5a.5.5 0 0 0-1 0V10h-1.5a.5.5 0 0 0-.5.5m2.5 1.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5"/>
+                  </svg> </button>
             </div>
-             <!-- Check if the user is authenticated -->
+            <!-- Check if the user is authenticated -->
             {% if user.is_authenticated %}
             <!-- Display the username as a link to the profile page -->
                 <a href="{% url 'user_profile' user.username %}" class="button">{{ user.username }}</a>
             {% else %}
                 <!-- Display the login button -->
-                <a href="{% url 'login' %}" class="button">Login</a>
+                <a href="{% url 'login' %}" class="login-button">Login</a>
             {% endif %}
-        </header>
-        <main>
-            <div class="feed">
-                <h2>Feed</h2>
-                
-                <div class="article">
+
+          
+        </nav>
+    </header>
+    <main>
+        <div class ="name-feed">
+            <h2>Feed</h2>
+        </div>
+
+        <div class="title-container">
+        </div>
+            <div class="articles">
+                <div class="article-card">
                     <div class="image-placeholder">
-                        <img src="caminho-da-imagem1.jpg" alt="Imagem da capa">
+                        <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
                     </div>
-                    <div class="article-title">Título do Artigo</div>
+                    <h3>Título do Artigo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
+                    <button>Learn more</button>
                 </div>
-                <div class="article">
+                <div class="article-card">
                     <div class="image-placeholder">
-                        <img src="caminho-da-imagem2.jpg" alt="Imagem da capa">
+                        <img src = "https://blog.casadoprodutor.com.br/wp-content/uploads/2018/04/gatinho.jpg" class="image-placeholder">
                     </div>
-                    <div class="article-title">Título do Artigo</div>
+                    <h3>Título do Artigo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
+                    <button>Learn more</button>
                 </div>
-                <div class="article">
+                <div class="article-card">
                     <div class="image-placeholder">
-                        <img src="caminho-da-imagem3.jpg" alt="Imagem da capa">
+                        <img src = "" class="image-placeholder">
                     </div>
-                    <div class="article-title">Título do Artigo</div>
+                    <h3>Título do Artigo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
+                    <button>Learn more</button>
                 </div>
             </div>
-        </main>
-    </div>
-    <!-- Seção Sobre Nós -->
-    <section class="about-us">
-        <h2>Sobre Nós</h2>
-        <p>PortWriter é uma plataforma dedicada a compartilhar artigos e insights de especialistas sobre diversos tópicos. Nossa missão é fornecer conteúdo de alta qualidade e acessível para todos.</p>
-    </section>
+        </section>
+    </main>
 </body>
 </html>

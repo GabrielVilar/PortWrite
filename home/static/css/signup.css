@@ -57,7 +57,7 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 2px solid #ccc;
+    border: 3px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
     border-top: #ccc;
@@ -70,7 +70,7 @@ input[type="email"]:hover,
 input[type="password"]:hover {
     width: 100%;
     padding: 10px;
-    border: 2px solid #858282;
+    border: 3px solid #858282;
     border-radius: 5px;
     font-size: 14px;
     border-top: #ccc;
@@ -85,7 +85,7 @@ input[type="password"]:focus {
     width: 100%;
     padding: 10px;
     outline: none;
-    border: 2px solid #007bff;
+    border: 3px solid #007bff;
     border-radius: 5px;
     font-size: 14px;
     border-top: #ccc;
@@ -111,7 +111,7 @@ input[type="password"]:focus {
 }
 
 button {
-    width: 100%;
+    
     padding: 10px;
     background-color: #007bff;
     border: none;
@@ -156,4 +156,9 @@ p a:hover {
 
 .checkbox-group {
     grid-column: 1 / 3;
+}
+.create-account{
+    justify-content: right;
+    width: 100%;
+    background-color: #0056b3;
 }
