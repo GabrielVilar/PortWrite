@@ -12,37 +12,37 @@
 <body>
     <div class="container">
         <div class="form-box">
-            <h1>Get Started With PortWriter</h1>
+            <h1>PortWriter</h1>
             <form id="signupForm" method="POST">
                 {% csrf_token %}
-                {{ form.non_field_errors }}  <!-- Display non-field errors -->
+                {{ form.non_field_errors }} 
                 <div class="input-group">
                     <label for="fullName">Full Name:</label>
-                    {{ form.full_name.errors }}  <!-- Display errors for full_name field -->
-                    {{ form.full_name }}  <!-- Use form.full_name for input field -->
+                    {{ form.full_name }}  
+                    {{ form.full_name.errors }}  
                 </div>
                 <div class="input-group">
                     <label for="email">Email:</label>
-                    {{ form.email.errors }}  <!-- Display errors for email field -->
-                    {{ form.email }}  <!-- Use form.email for input field -->
-                </div>
-                <div class="input-group">
-                    <label for="username">Username:</label>
-                    {{ form.username.errors }}  <!-- Display errors for username field -->
-                    {{ form.username }}  <!-- Use form.username for input field -->
+                    {{ form.email }} 
+                    {{ form.email.errors }}                   
                 </div>
                 <div class="input-group">
                     <label for="password1" id="password1">Password:</label>
-                    {{ form.password1.errors }}  <!-- Display errors for password1 field -->
-                    {{ form.password1 }}  <!-- Use form.password1 for input field -->
+                    {{ form.password1 }}  
+                    {{ form.password1.errors }} 
+                </div>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    {{ form.username }}  
+                    {{ form.username.errors }}  
                 </div>
                 <div class="input-group">
                     <label for="password2" id="password2">Confirm Password:</label>
-                    {{ form.password2.errors }}  <!-- Display errors for password2 field -->
-                    {{ form.password2 }}  <!-- Use form.password2 for input field -->
+                    {{ form.password2 }}  
+                    {{ form.password2.errors }} 
                 </div>
                 <div class="checkbox-group">
-                    <input type="checkbox" id="notifications" name="notifications" checked>
+                    <input type="checkbox" id="notifications" name="notifications" >
                     <label for="notifications">Receber notificações por email</label>
                 </div>
                 <div class="checkbox-group">
@@ -54,6 +54,5 @@
             <p>Have an account? <a href="{% url 'login' %}">Sign in!</a></p>
         </div>
     </div>
-
 </body>
 </html>

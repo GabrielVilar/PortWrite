@@ -23,6 +23,21 @@ class SignUpForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'Full Name'})
     )
+    username = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Authentic username'})
+    )
+    password1 = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter password'})
+    )
+    password2 = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.PasswordInput(attrs={'placeholder': 'Password comfirmation'})
+    )
 
     class Meta:
         model = User

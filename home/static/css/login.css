@@ -53,13 +53,33 @@ body {
     width: 93.5%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
     font-size: 16px;
 }
 
+.input-group input:hover {
+    width: 93.5%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #858282;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 .input-group input:focus {
-    border-color: #007bff;
+    border: 2px solid #007bff;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    border-top: #ccc;
     outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .toggle-password {

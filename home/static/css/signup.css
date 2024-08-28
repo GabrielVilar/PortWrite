@@ -57,9 +57,41 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #858282;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .checkbox-group {
