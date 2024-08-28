@@ -12,32 +12,34 @@
 <body>
     <div class="container">
         <div class="form-box">
-            <div class="logo">
-                <img src="{% static 'images/favicon.png' %}" alt="PortWriter Logo">
-            </div>
             <h1>Get Started With PortWriter</h1>
-            <form id="signupForm">
-
+            <form id="signupForm" method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}  <!-- Display non-field errors -->
                 <div class="input-group">
                     <label for="fullName">Full Name:</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                    {{ form.full_name.errors }}  <!-- Display errors for full_name field -->
+                    {{ form.full_name }}  <!-- Use form.full_name for input field -->
                 </div>
                 <div class="input-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                    {{ form.email.errors }}  <!-- Display errors for email field -->
+                    {{ form.email }}  <!-- Use form.email for input field -->
                 </div>
                 <div class="input-group">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Choose an authentic username" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    {{ form.username.errors }}  <!-- Display errors for username field -->
+                    {{ form.username }}  <!-- Use form.username for input field -->
                 </div>
                 <div class="input-group">
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                    <label for="password1" id="password1">Password:</label>
+                    {{ form.password1.errors }}  <!-- Display errors for password1 field -->
+                    {{ form.password1 }}  <!-- Use form.password1 for input field -->
+                </div>
+                <div class="input-group">
+                    <label for="password2" id="password2">Confirm Password:</label>
+                    {{ form.password2.errors }}  <!-- Display errors for password2 field -->
+                    {{ form.password2 }}  <!-- Use form.password2 for input field -->
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="notifications" name="notifications" checked>
@@ -49,7 +51,7 @@
                 </div>
                 <button type="submit">Create Account</button>
             </form>
-            <p>have an account? <a href="login">Sign in!</a></p>
+            <p>Have an account? <a href="{% url 'login' %}">Sign in!</a></p>
         </div>
     </div>
 

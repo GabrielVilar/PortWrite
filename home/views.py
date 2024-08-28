@@ -1,13 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login as auth_login
-from .forms import CustomAuthenticationForm
+from .forms import CustomAuthenticationForm, SignUpForm
 
 def home(request):
-    # Add context for popular writers, highlighted portfolios, etc.
-    # context = {
-    #     'highlighted_portfolios': [],  # Fetch data here
-    #     'recent_articles': [],  # Fetch data here
-    # }
     return render(request, 'home.html')
 
 def about(request):
@@ -19,14 +14,22 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
-            return redirect(f'/user/{user.username}')
+            return redirect('home')
     else:
         form = CustomAuthenticationForm()
     
     return render(request, 'login.html', {'form': form})
 
-def singup(request):
-    return render(request, 'singup.html')
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)
+            return redirect('home')  # Redirect to home page after successful signup
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
 def logout_view(request):
     logout(request)

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="user-page-container">
-        <h2>Bem-vindo, {{ username }}!</h2>
+        <h2>Bem-vindo, {{ user.username }}!</h2>
         <p>Esta é sua página de usuário.</p>
     </div>
     <form method="POST" action="{% url 'logout' %}">

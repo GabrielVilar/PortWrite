@@ -12,7 +12,6 @@
 <body>
     <div class="login-container">
         <div class="login-box">
-            {% comment %} <img src="{% static 'images/favicon.png' %}" alt="Ícone logo" class="pencil-icon"> {% endcomment %}
             <h2>PortWriter</h2>
             <form method="POST">
                 {% csrf_token %}
@@ -31,7 +30,7 @@
                 <button type="submit">Login now</button>
             </form>
             <div class="signup-link">
-                <p>Don't Have An Account? <a href="singup">Sign Up</a></p>
+                <p>Don't Have An Account? <a href="signup">Sign Up</a></p>
             </div>
         </div>
     </div>

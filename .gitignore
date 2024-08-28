@@ -8,9 +8,6 @@ db.sqlite3
 __pycache__/
 *.py[cod]
 
-# Ignore Django migrations (optional, if you want to manage them locally)
-*/migrations/
-
 # Ignore compiled files
 *.pyc
 *.pyo

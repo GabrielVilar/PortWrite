@@ -28,7 +28,14 @@
                     </svg>
                 </div>
             </div>
-            <a href="login" class="button">Login</a>
+             <!-- Check if the user is authenticated -->
+            {% if user.is_authenticated %}
+            <!-- Display the username as a link to the profile page -->
+                <a href="{% url 'user_profile' user.username %}" class="button">{{ user.username }}</a>
+            {% else %}
+                <!-- Display the login button -->
+                <a href="{% url 'login' %}" class="button">Login</a>
+            {% endif %}
         </header>
         <main>
             <div class="feed">
