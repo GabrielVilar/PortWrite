@@ -12,6 +12,11 @@
         <h2>Bem-vindo, {{ user.username }}!</h2>
         <p>Esta é sua página de usuário.</p>
     </div>
+    {% comment %} <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form> {% endcomment %}
     <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit" class="logout-button">Logout</button>

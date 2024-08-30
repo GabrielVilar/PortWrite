@@ -16,7 +16,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-     
 }
 
 .logo {
@@ -31,7 +30,6 @@ header {
 
 .namenav{
     color: rgb(40, 40, 41);
-    
     font-size: 25px;
 }
 
@@ -48,7 +46,6 @@ header {
     background: none;
     padding: 5px;
     width: 350px;
-   
 }
 
 .search button {
@@ -56,7 +53,6 @@ header {
     border: none;
     cursor: pointer;
     outline: none;
-    
 }
 
 .login-button {
@@ -66,9 +62,7 @@ header {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    
 }
-
 
 .title-container {
    /* Linha completa abaixo do contêiner */
@@ -81,18 +75,14 @@ header {
 .name-feed  {
     font-family: Arial, sans-serif;
     color: #4f4e4e;
-    font-size: 20px;
+    font-size: 11px;
     padding-top: 50px;
-    padding-left: 90px;
-    
-   
+    padding-left: 90px;   
 }
 
- h4{
-    
+h4{
     padding: 5px;
 }
-
 
 .articles {
     display: flex;
@@ -100,7 +90,6 @@ header {
     margin-right: 95px;
     margin-left: 90px;
     padding-top: 50px;
-    
 }
 
 .article-card {
@@ -144,3 +133,29 @@ header {
     cursor: pointer;
 }
 
+.user_button {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 2px 15px;
+    border-radius: 33px; /* Makes the border rounded */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.user_button:hover {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #0a3c70; /* Adds a hover effect */
+    color: white;
+    text-decoration: none;
+}
+
+.user_button .profile-picture {
+    margin-left: -14px;
+    margin-right: 10px; /* Adds space between the image and the text */
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+}
