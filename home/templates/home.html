@@ -1,6 +1,5 @@
 
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -31,14 +30,18 @@
             </div>
             <!-- Check if the user is authenticated -->
             {% if user.is_authenticated %}
-            <!-- Display the username as a link to the profile page -->
-                <a href="{% url 'user_profile' user.username %}" class="button">{{ user.username }}</a>
+                <a href="{% url 'user_profile' user.username %}" class="user_button">
+                    {% if user.profile_picture %}
+                        <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                    {% else %}
+                        <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="profile-picture">
+                    {% endif %}
+                    {{ user.username }}
+                </a>        
             {% else %}
                 <!-- Display the login button -->
                 <a href="{% url 'login' %}" class="login-button">Login</a>
             {% endif %}
-
-          
         </nav>
     </header>
     <main>

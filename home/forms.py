@@ -39,6 +39,8 @@ class SignUpForm(UserCreationForm):
         widget=forms.PasswordInput(attrs={'placeholder': 'Password comfirmation'})
     )
 
+    profile_picture = forms.ImageField(required=False)
+
     class Meta:
         model = User
         fields = ('username', 'email', 'full_name', 'password1', 'password2')
