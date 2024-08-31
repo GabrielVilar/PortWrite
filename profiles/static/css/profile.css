@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     transition: background-color 0.5s ease;
 }
+
 .user-page-container {
     max-width: 500px;
     margin: 50px auto;
@@ -18,7 +19,6 @@ h2 {
 }
 
 .logout-button {
- 
     padding: 10px 20px;
     margin-left: 48%;
     background-color: #007BFF;

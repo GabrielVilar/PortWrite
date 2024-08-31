@@ -38,8 +38,8 @@ body {
 }
 
 a.PortButton h2:hover {
-    color: #007bff; /* Change color on hover */
-    transform: scale(1.1); /* Slightly increase size on hover */
+    color: #007bff; 
+    transform: scale(1.1); 
 }
 
 .input-group {

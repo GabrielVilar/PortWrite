@@ -27,17 +27,27 @@ body {
     text-align: left;
 }
 
+.form-box a.PortButton{
+    text-decoration: none;
+}
+
+.form-box a.PortButton h2{
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.form-box a.PortButton h2:hover{
+    color: #007bff; 
+    transform: scale(1.1); 
+}
+
 .logo img {
     display: block;
     margin: 0 auto 20px;
     width: 60px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 20px;
-    font-weight: 600;
 }
 
 .input-group {
@@ -50,14 +60,13 @@ label {
     margin-bottom: 5px;
     font-size: 14px;
     color: #333;
-    
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 13px;
     border: 3px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
@@ -69,8 +78,6 @@ input[type="password"] {
 input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover {
-    width: 100%;
-    padding: 10px;
     border: 3px solid #858282;
     border-radius: 5px;
     font-size: 14px;
@@ -83,8 +90,6 @@ input[type="password"]:hover {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    width: 100%;
-    padding: 10px;
     outline: none;
     border: 3px solid #007bff;
     border-radius: 5px;
@@ -93,25 +98,24 @@ input[type="password"]:focus {
     border-left: #ccc;
     border-right: #ccc;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    
 }
 
 .checkbox-group {
-    display: flex;
+    padding: 3px;
+    margin-top: 15px;
+    display:flex;
     align-items: center;
     margin-bottom: 15px;
     font-size: 14px;
 }
 
-.checkbox-group input {
-    margin-right: 10px;
-    
+.checkbox-group label {
+    margin-right: 25px;
 }
 
 .checkbox-group label a {
     color: #007bff;
     text-decoration: none;
-   
 }
 
 button {
@@ -129,7 +133,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-
 p {
     text-align: center;
     margin-top: 20px;
@@ -145,4 +148,3 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
-

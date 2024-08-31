@@ -9,14 +9,12 @@ header {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
-    
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-     
 }
 
 .logo {
@@ -31,7 +29,6 @@ header {
 
 .namenav{
     color: rgb(40, 40, 41);
-    
     font-size: 25px;
 }
 
@@ -50,16 +47,14 @@ header {
     padding: 5px;
     width: 350px;
     outline: none;
-   
 }
 
 .search button {
     background: none;
     border: none;
-    cursor: pointer;
-   
-    
+    cursor: pointer;    
 }
+
 .search button:focus {
     outline: none; /* Garante que o contorno também não apareça quando o botão recebe foco */
 }
@@ -81,8 +76,6 @@ header {
     color: #333;
 }
 
-
-
 .title-container {
    /* Linha completa abaixo do contêiner */
     border-bottom: 2px solid #4f4e4e;
@@ -96,15 +89,13 @@ header {
     color: #4f4e4e;
     font-size: 20px;
     padding-top: 50px;
-    padding-left: 90px;
-    
-   
+    padding-left: 90px;      
 }
 
- h4{
-    
+h4{   
     padding: 5px;
 }
+
 .feed {
     margin: 20px auto;
     width: 80%;
@@ -148,7 +139,6 @@ header {
     margin-right: 100px;
     display: flex;
     justify-content: space-between;
-    
 }
 
 .feed .post-box .buttons button {
@@ -160,7 +150,6 @@ header {
     display: flex;
     align-items: center;
     font-family: Arial;
-    
 }
 
 .feed .post-box .buttons button svg {
@@ -174,7 +163,6 @@ header {
     margin-right: 95px;
     margin-left: 90px;
     padding-top: 50px;
-    
 }
 
 .article-card {

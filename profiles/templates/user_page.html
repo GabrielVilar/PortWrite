@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,8 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_page.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="{% static 'js/user_page.js' %}" defer></script>
-   
-
 </head>
 <body>
     <header>
@@ -31,25 +28,19 @@
             </div>
             <div class="user-profile"  onclick="toggleDropdown()">
                 <img src="https://mms.img.susercontent.com/46227b3f51c1d300bacd5770a55a2c9e_tn" alt="Profile">
-
                 <div id="dropdown-menu" class="dropdown-menu">
                     <a href="">Profile</a>
-                    <a href="{% static 'templates/home.html' %}">Logout</a>
+                    <a href="{% url 'logout' %}">Logout</a>
                     <a href="#">Artigos</a>
                 </div>
             </div>
-                
-            </nav>
-            
+        </nav> 
     </header>
-
     <div class ="name-feed">
         <h4>Feed</h4>
     </div>
-
     <div class="title-container">
     </div>
-
     <div class="feed">
         <div class="post-box">
             <img src="https://mms.img.susercontent.com/46227b3f51c1d300bacd5770a55a2c9e_tn" alt="User">
@@ -68,37 +59,34 @@
                   </svg> Escrever artigo</button>
             </div>
         </div>
-
-        <main>
-                <div class="articles">
-                    <div class="article-card">
-                        <div class="image-placeholder">
-                            <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-                        </div>
-                        <h3>Título do Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="article-card">
-                        <div class="image-placeholder">
-                            <img src = "https://blog.casadoprodutor.com.br/wp-content/uploads/2018/04/gatinho.jpg" class="image-placeholder">
-                        </div>
-                        <h3>Título do Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="article-card">
-                        <div class="image-placeholder">
-                            <img src = "https://blog-static.petlove.com.br/wp-content/uploads/2017/07/adotar-um-gatinho-1.jpg" class="image-placeholder">
-                        </div>
-                        <h3>Título do Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
-                        <button>Learn more</button>
-                    </div>
+    <main>
+        <div class="articles">
+            <div class="article-card">
+                <div class="image-placeholder">
+                    <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
                 </div>
-            </section>
-        </main>
-        
-       
-    
+                <h3>Título do Artigo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
+                <button>Learn more</button>
+                </div>
+                <div class="article-card">
+                <div class="image-placeholder">
+                    <img src = "https://blog.casadoprodutor.com.br/wp-content/uploads/2018/04/gatinho.jpg" class="image-placeholder">
+                </div>
+                    <h3>Título do Artigo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
+                    <button>Learn more</button>
+                </div>
+                <div class="article-card">
+                    <div class="image-placeholder">
+                        <img src = "https://blog-static.petlove.com.br/wp-content/uploads/2017/07/adotar-um-gatinho-1.jpg" class="image-placeholder">
+                    </div>
+                    <h3>Título do Artigo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
+                    <button>Learn more</button>
+                </div>
+            </div>    
+        </div>
+        </section>
+    </main>
 </body>
