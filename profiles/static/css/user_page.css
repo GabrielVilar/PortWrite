@@ -1,10 +1,18 @@
-body {
-    font-family: Arial, sans-serif;
+
+* {
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 header {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -47,12 +55,15 @@ header {
     padding: 5px;
     width: 350px;
     outline: none;
+   
 }
 
 .search button {
     background: none;
     border: none;
-    cursor: pointer;    
+    cursor: pointer;
+   
+    
 }
 
 .search button:focus {
@@ -63,6 +74,7 @@ header {
     display: flex;
     align-items: center;
     position: relative; 
+    margin-right: 100px;
 }
 
 .navbar .user-profile img {
@@ -75,6 +87,8 @@ header {
     font-weight: bold;
     color: #333;
 }
+
+
 
 .title-container {
    /* Linha completa abaixo do contêiner */
@@ -89,13 +103,15 @@ header {
     color: #4f4e4e;
     font-size: 20px;
     padding-top: 50px;
-    padding-left: 90px;      
+    padding-left: 90px;
+    
+   
 }
 
-h4{   
+ h4{
+    
     padding: 5px;
 }
-
 .feed {
     margin: 20px auto;
     width: 80%;
@@ -138,7 +154,9 @@ h4{
     margin-left: 100px;
     margin-right: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .feed .post-box .buttons button {
@@ -150,6 +168,7 @@ h4{
     display: flex;
     align-items: center;
     font-family: Arial;
+    
 }
 
 .feed .post-box .buttons button svg {
@@ -163,6 +182,7 @@ h4{
     margin-right: 95px;
     margin-left: 90px;
     padding-top: 50px;
+    
 }
 
 .article-card {
@@ -173,7 +193,10 @@ h4{
     width: 388px;
     height: 463px;
     text-align: center;
+    padding: 0 20px; /* Adicionado padding aqui para manter o texto centralizado */
 }
+
+
 
 .image-placeholder {
     background-color: #f1f3f5;
@@ -184,38 +207,103 @@ h4{
     object-fit: cover;
 }
 
-.article-card h3 {
-    color: #007bff;
+.sidebar h2 {
+    margin-top: 10px;
     font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
+    font-family: Arial;
 }
 
-.article-card p {
-    font-size: 14px;
-    color: #6c757d;
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 20px;
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.activity h1 {
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-.article-card button {
-    background-color: #ffffff;
-    color: #007bff;
-    border: 2px solid #007bff;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
+.card {
+    
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card img {
+   
+    max-width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.card button {
+        background-color: #ffffff;
+        color: #007bff;
+        border: 2px solid #007bff;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+    
+}
+
+.card button:hover {
+    background-color: #7bb9d8;
+}
 .dropdown-menu {
     display: none; /* Oculto por padrão */
     position: absolute;
     top: 50px; /* Abaixo do botão de perfil */
-    right: 550px; 
     background-color: #ffffff;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    width: 150px;
+    width: 100px;
     z-index: 1000;
 }
 
@@ -228,5 +316,5 @@ h4{
 }
 
 .dropdown-menu a:hover {
-    background-color: #f4f4f4;
+    background-color: #f4f4f4;
 }
