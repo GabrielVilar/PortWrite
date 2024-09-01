@@ -284,5 +284,5 @@ h4{
 }
 a.PortButton:hover{
     text-decoration: none;
-    font-weight: bold;
+    cursor: pointer;
 }
