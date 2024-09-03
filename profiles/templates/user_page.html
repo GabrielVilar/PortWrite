@@ -8,186 +8,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_page.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="{% static 'js/user_page.js' %}" defer></script>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="{% static 'images/favicon.png' %}" alt="PortWriter Logo">
-                <a href="{% url 'home' %}" class="PortButton"><span class ="namenav">PortWriter</span></a>
-            </div>
-            <div class="search">
-                <input type="text" placeholder="Search for...">
-                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg> </i></button>
-                <button> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders2-vertical" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M0 10.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H3V1.5a.5.5 0 0 0-1 0V10H.5a.5.5 0 0 0-.5.5M2.5 12a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5m3-6.5A.5.5 0 0 0 6 6h1.5v8.5a.5.5 0 0 0 1 0V6H10a.5.5 0 0 0 0-1H6a.5.5 0 0 0-.5.5M8 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2A.5.5 0 0 0 8 1m3 9.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1H14V1.5a.5.5 0 0 0-1 0V10h-1.5a.5.5 0 0 0-.5.5m2.5 1.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5"/>
-                </svg> </button>
-            </div>
-            <div class="user-profile"  onclick="toggleDropdown()">
-                    {% if user.profile_picture %}
-                        <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
-                    {% else %}
-                        <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="profile-picture">
-                    {% endif %}
-                    {{ user.username }}
-                {% comment %} <div id="dropdown-menu" class="dropdown-menu">
-                    <a href="">Profile</a>
-                    <a href="{% url 'logout' %}">Logout</a>
-                    <a href="#">Artigos</a>
-                </div>  {% endcomment %}
-            </div>        
-        </nav>
+    <header>
+        {% include 'navbar.html' with show_search=False search_js=False %}
     </header>
-    <div class="container">
-        <aside class="sidebar">
+    <div class="user-container">
+        <div class="user-options">
             <div class="profile">
                 {% if user.profile_picture %}
                     <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="image-placeholder">
                 {% else %}
-                     <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="image-placeholder">
+                    <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="image-placeholder">
                 {% endif %}
-                <h3>{{ user.username }}</h3>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16">
+            <ul>
+                <a href="#" class="active">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16">
                         <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293z"/>
-                        </svg> Salvos</a>
+                        </svg> Salvos
                     </li>
-                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                </a>
+                <a href="#">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                         <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                        </svg> Configurações</a>
+                        </svg> Configurações
                     </li>
-                    <li><a href="#">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                </a>
+                <a href="#">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                        </svg> Página de Usuário</a>
+                        </svg> Página de Usuário
                     </li>
-                    <li><a href="{% url 'logout' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                </a>
+                <a href="{% url 'logout' %}">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                        </svg> Sair</a>
+                        </svg> Sair
                     </li>
-                </ul>
-            </nav>
-        </aside> 
-        <main class="main-content">
-            <section class="activity">
-                <h1>Salvos</h1>
-                <div class="cards">
-                    <div class="card">
-                        <img src="https://s2.static.brasilescola.uol.com.br/img/2019/10/dia-do-livro.jpg" alt="Mobile app">
-                        <h3>Artigo </h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://portalhospitaisbrasil.com.br/wp-content/uploads/livro-7.jpg" alt="Desktop app">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvYC-_65dhbM29o6pN1dS0UM4xfy44kZdvlA&s" alt="Multiple users">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://www.carochinhaeditora.com.br/wp-content/uploads/2020/09/O-LIVRO-DO-GATO-4.jpg" alt="Integrations">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://ativaprint.com.br/site-23/wp-content/uploads/2023/06/Detalhe-prod-livro-capadura-full2x-1010x718-1.jpg.webp" alt="Monthly reports">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://cdn.prod.website-files.com/61155c49f7b752051f9f05b0/63dd526a1366f0c228d3061a_livro-capa%20(1).webp" alt="Granular permissions">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://s2.static.brasilescola.uol.com.br/img/2019/10/dia-do-livro.jpg" alt="Mobile app">
-                        <h3>Artigo </h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://portalhospitaisbrasil.com.br/wp-content/uploads/livro-7.jpg" alt="Desktop app">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvYC-_65dhbM29o6pN1dS0UM4xfy44kZdvlA&s" alt="Multiple users">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://www.carochinhaeditora.com.br/wp-content/uploads/2020/09/O-LIVRO-DO-GATO-4.jpg" alt="Integrations">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://ativaprint.com.br/site-23/wp-content/uploads/2023/06/Detalhe-prod-livro-capadura-full2x-1010x718-1.jpg.webp" alt="Monthly reports">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://cdn.prod.website-files.com/61155c49f7b752051f9f05b0/63dd526a1366f0c228d3061a_livro-capa%20(1).webp" alt="Granular permissions">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://s2.static.brasilescola.uol.com.br/img/2019/10/dia-do-livro.jpg" alt="Mobile app">
-                        <h3>Artigo </h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://portalhospitaisbrasil.com.br/wp-content/uploads/livro-7.jpg" alt="Desktop app">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvYC-_65dhbM29o6pN1dS0UM4xfy44kZdvlA&s" alt="Multiple users">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://www.carochinhaeditora.com.br/wp-content/uploads/2020/09/O-LIVRO-DO-GATO-4.jpg" alt="Integrations">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://ativaprint.com.br/site-23/wp-content/uploads/2023/06/Detalhe-prod-livro-capadura-full2x-1010x718-1.jpg.webp" alt="Monthly reports">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img src="https://cdn.prod.website-files.com/61155c49f7b752051f9f05b0/63dd526a1366f0c228d3061a_livro-capa%20(1).webp" alt="Granular permissions">
-                        <h3>Artigo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <button>Learn more</button>
-                    </div>
-                </div>
-            </section>
-        </main>
+                </a>
+            </ul>
+        </div>
     </div>
 </body>
    

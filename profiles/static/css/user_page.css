@@ -1,288 +1,58 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: Arial;
-    background-color: #f4f4f9;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-}
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.logo {
-    display: flex;
-    align-items: center;
-}
-.logo img {
-    height: 25px;
-    margin-right: 25px;
-}
-.namenav{
-    color: rgb(40, 40, 41);
-    font-size: 25px;
-}
-.search {
-    display: flex;
-    align-items: center;
-    background-color: #f1f3f5;
-    border-radius: 20px;
-    padding: 5px 10px;
-    outline: none;
-}
-.search input {
-    border: none;
-    background: none;
-    padding: 5px;
-    width: 350px;
-    outline: none;  
-}
-.search button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-.search button:focus {
-    outline: none; /* Garante que o contorno também não apareça quando o botão recebe foco */
-}
-.navbar .user-profile {
-    display: flex;
-    align-items: center;
-    position: relative; 
-    margin-right: 100px;
-}
-.navbar .user-profile img {
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-.navbar .user-profile span {
-    font-weight: bold;
-    color: #333;
-}
-.title-container {
-   /* Linha completa abaixo do contêiner */
-    border-bottom: 2px solid #4f4e4e;
-    width: 90%;
-    margin-bottom: 20px; /* Espaço abaixo da linha */
-    margin-left: 95px;
-}
-.name-feed  {
-    font-family: Arial, sans-serif;
-    color: #4f4e4e;
-    font-size: 20px;
-    padding-top: 50px;
-    padding-left: 90px;   
-}
-h4{
-    
-    padding: 5px;
-}
-.feed {
-    margin: 20px auto;
+.user-container{
     width: 80%;
-}
-.feed .post-box {
-    width: 100%;
-    height: 150px;
+    height: 90%;
     background-color: #ffffff;
-    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-.feed .post-box img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    vertical-align: middle;
-    object-fit: cover;
-}
-.feed .post-box input {
-    width: 90%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    margin-left: 10px;
-    outline: none;
-}
-.feed .post-box .buttons button:focus {
-    outline: none; /* Garante que o contorno também não apareça quando o botão recebe foco */
-}
-.feed .post-box .buttons {
-    margin-top: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
-.feed .post-box .buttons button {
-    background: none;
-    border: none;
-    color: #333;
-    font-size: 14px;
+
+.user-options{
+    width: 200px;
+    height: 750px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    
+}
+
+.profile{
+    height: 190px;
+    margin-top: 5%;
+    margin-left: 6%;
+}
+
+.image-placeholder{
+    width: 175px;
+    height: 175px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-family: Arial;
 }
-.feed .post-box .buttons button svg {
-    margin-right: 10px;
-    fill: blue;
-}
-.articles {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 95px;
-    margin-left: 90px;
-    padding-top: 50px;
-}
-.article-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 70px;
-    width: 388px;
-    height: 463px;
-    text-align: center;
-    padding: 0 20px; /* Adicionado padding aqui para manter o texto centralizado */
-}
-.image-placeholder {
-    background-color: #f1f3f5;
-    height: 150px;
-    width: 150px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.sidebar {
-    margin-top: 30px;
-    width: 250px; /* Adjust the width as needed */
-    background-color: #ffffff; /* Dark background color for the sidebar */
-    color: black;
-    height: 50%; /* Full height of the container */
-    position: fixed; /* Fix the sidebar on the left */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    align-items: center;
-    text-align: center;
-}
-.sidebar ul {
+
+.user-options ul{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-.sidebar li {
-    border-top: 2px solid #b6b3b3;
+
+.user-options li{
+    border-top: 2px solid #4f4e4e;
     padding: 15px;
     text-align: left;
     font-weight: bold;
 }
-.sidebar li:hover {
-    background-color: #007BFF; /* Highlight effect on hover */
-}
-.sidebar a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    display: block;
+
+.user-options li:hover{
+    background-color: #b2d5fa;
 }
 
-.sidebar a:hover {
-    color: white;
-    text-decoration: none;
-    display: block;
+.user-options a{
+    color: black;
 }
 
-.sidebar .image-placeholder{
-    margin-top: 25px;
-}
-
-.main-content {
-    margin-top: 2px;
-    margin-left: 25%;
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #fff;
-    overflow-y: auto;
-}
-.activity h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.card {
-    
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-}
-.card img {
-    max-width: 100%;
-    height: 150px;
-    margin-bottom: 15px;
-    object-fit: cover;
-}
-.card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-.card p {
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-.card button {
-        background-color: #ffffff;
-        color: #007bff;
-        border: 2px solid #007bff;
-        padding: 10px 20px;
-        border-radius: 20px;
-        cursor: pointer;
-    
-}
-.card button:hover {
-    background-color: #7bb9d8;
-}
-.dropdown-menu {
-    display: none; /* Oculto por padrão */
-    position: absolute;
-    top: 50px; /* Abaixo do botão de perfil */
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    width: 100px;
-    z-index: 1000;
-}
-.dropdown-menu a {
-    display: block;
-    padding: 10px;
+.user-options a:hover{
     text-decoration: none;
-    color: #333;
-    font-size: 14px;
-}
-.dropdown-menu a:hover {
-    background-color: #f4f4f4;
-}
-a.PortButton:hover{
-    text-decoration: none;
-    cursor: pointer;
+    color: black;
 }

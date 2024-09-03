@@ -66,30 +66,3 @@
      border-radius: 20px;
      cursor: pointer;
  }
- 
- .user_button {    
-     color: black;
-     display: flex;
-     align-items: center;
-     padding: 2px 15px;
-     border-radius: 33px; 
-     cursor: pointer;
-     transition: all 0.3s ease;
-     font-weight: bold;
-     transition: color 0.3s ease, transform 0.3s ease;
- }
- 
- .user_button:hover {
-     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-     background-color: #b2d5fa; 
-     color: black;
-     text-decoration: none;
- }
- 
- .user_button .profile-picture {
-     margin-left: -14px;
-     margin-right: 10px; /* Adds space between the image and the text */
-     width: 40px;
-     height: 40px;
-     border-radius: 30px;
- }
