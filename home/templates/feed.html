@@ -3,7 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'css/feed.css' %}">
-        <script src="{% static 'js/feed.js' %}" defer></script>
+       
     </head>
     <body>
         <main>
@@ -27,7 +27,7 @@
                         </div>
                         <h3>Título do Artigo</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
-                        <button>Learn more</button>
+                        <button><a href="article">Learn more </a></button>
                     </div>
                     <div class="article-card">
                         <div class="image-placeholder">
@@ -35,7 +35,7 @@
                         </div>
                         <h3>Título do Artigo</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar dolor elementum tempus hac.</p>
-                        <button>Learn more</button>
+                        <button> <a href="{% static 'templates/article.html' %}">Learn more </a></button>
                     </div>
                 </div>
             </section>
