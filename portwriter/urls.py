@@ -26,4 +26,4 @@ urlpatterns = [
     path('articles/', include("articles.urls")),
     path('user/', include("profiles.urls")),
     path('', RedirectView.as_view(url='/home/', permanent=False)),
-] 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

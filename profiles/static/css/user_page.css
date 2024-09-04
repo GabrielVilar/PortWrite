@@ -1,5 +1,5 @@
 .user-container{
-    width: 80%;
+    width: 70%;
     height: 90%;
     background-color: #ffffff;
     margin-left: auto;
@@ -16,7 +16,6 @@
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    
 }
 
 .profile{
@@ -29,6 +28,7 @@
     width: 175px;
     height: 175px;
     cursor: pointer;
+    border-radius: 90px;
 }
 
 .user-options ul{
@@ -38,7 +38,7 @@
 }
 
 .user-options li{
-    border-top: 2px solid #4f4e4e;
+    border-top: 1px solid #9b9b9b;
     padding: 15px;
     text-align: left;
     font-weight: bold;
@@ -52,7 +52,14 @@
     color: black;
 }
 
-.user-options a:hover{
-    text-decoration: none;
+.user-options .active li{
     color: black;
+    background-color: #86bcf7;
 }
+
+.user-options a:hover{
+    border-top: 1px solid #00356e;
+    text-decoration: none;
+    color: #00356e;
+}
+
