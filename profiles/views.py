@@ -5,16 +5,28 @@ from .models import User
 from django.contrib import messages
 from .models import Profile
 
-@login_required
-def user_page(request, username):
-    context = {'username': username}
-    return render(request, 'user_page.html', context)
-
 User = get_user_model()
 
+@login_required
 def user_profile_view(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'user_page.html', {'user': user})
+    return render(request, 'user_page.html', {
+        'user': user,
+        'current_url': request.resolver_match.url_name
+    })
+
+@login_required
+def user_settings_view(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, 'settings.html', {
+        'user': user,
+        'current_url': request.resolver_match.url_name
+    })
+
+@login_required
+def user_saved_articles_view(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, 'saved_articles.html', {'user': user})
 
 @login_required
 def update_profile_picture(request):
