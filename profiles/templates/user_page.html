@@ -19,11 +19,7 @@
         <div class="user-options">
             <div class="profile">
                 <a href="" id="change-profile-pic-link">
-                    {% if user.profile.profile_picture %}
-                        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="image-placeholder">
-                    {% else %}
-                        <img src="{% static 'images/default_profile.png' %}" alt="Default Profile Picture" class="image-placeholder">
-                    {% endif %}
+                    <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="image-placeholder">
                     <img src="{% static 'images/hover_profile.png' %}" alt="Hover Profile Picture" class="hover-image">
                 </a>  
                 <div id="profile-picture-change-container" style="display: none;">
