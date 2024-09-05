@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortWriter - UserPage</title>
     <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/user_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_menu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/profile_picture_change.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="{% static 'js/cropper.js'%}" defer ></script>
@@ -71,6 +71,11 @@
                     </li>
                 </a>
             </ul>
+        </div>
+        <div class="content">
+            {% if current_url == 'user_profile' %}
+                {% include 'user_page.html'%}
+            {% endif %}
         </div>
     </div>
 </body>

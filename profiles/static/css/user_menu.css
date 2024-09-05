@@ -1,0 +1,111 @@
+.user-container{
+    width: 80%;
+    height: 90%;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    width: 85%;
+    margin-left: 2%;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.user-options{
+    width: 245px;
+    height: 45%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .user-container {
+        flex-direction: column; /* Stack the elements */
+    }
+
+    .user-options, .content {
+        width: 100%; /* Make both divs full width */
+    }
+
+    .content {
+        margin: 0; /* Remove margin for small screens */
+    }
+}
+
+.profile{
+    position: relative;
+    height: 175px;
+    width: 175px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.image-placeholder{
+    width: 175px;
+    height: 175px;
+    cursor: pointer;
+    border-radius: 90px;
+    
+}
+
+.hover-image {
+    width: 175px;
+    height: 175px;
+    cursor: pointer;
+    border-radius: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile:hover .hover-image {
+    opacity: 0.50;
+}
+
+.profile:hover .image-placeholder {
+    opacity: 1;
+}
+
+.user-options ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-options li{
+    border-top: 1px solid #9b9b9b;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.user-options li:hover{
+    background-color: #b2d5fa;
+}
+
+.user-options a{
+    color: black;
+}
+
+.user-options .active li{
+    color: black;
+    background-color: #86bcf7;
+}
+
+.user-options a:hover{
+    border-top: 1px solid #00356e;
+    text-decoration: none;
+    color: #00356e;
+}

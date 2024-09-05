@@ -10,7 +10,7 @@ User = get_user_model()
 @login_required
 def user_profile_view(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'user_page.html', {
+    return render(request, 'user_menu.html', {
         'user': user,
         'current_url': request.resolver_match.url_name
     })
