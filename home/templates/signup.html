@@ -19,27 +19,27 @@
                 <div class="input-group">
                     <label for="fullName">Full Name:</label>
                     {{ form.full_name }}  
-                    {{ form.full_name.errors }}  
+                    <p class ="error">  {{ form.full_name.errors }} </p>
                 </div>
                 <div class="input-group">
                     <label for="email">Email:</label>
                     {{ form.email }} 
-                    {{ form.email.errors }}                   
+                    <p class ="error">   {{ form.email.errors }}     </p>              
                 </div>
                 <div class="input-group">
                     <label for="username">Username:</label>
                     {{ form.username }}  
-                    {{ form.username.errors }}  
+                    <p class ="error">    {{ form.username.errors }}  </p>
                 </div>
                 <div class="input-group">
                     <label for="password1" id="password1">Password:</label>
                     {{ form.password1 }}  
-                    {{ form.password1.errors }} 
+                    <p class ="error">    {{ form.password1.errors }} </p>
                 </div>
                 <div class="input-group">
                     <label for="password2" id="password2">Confirm Password:</label>
                     {{ form.password2 }}  
-                    {{ form.password2.errors }} 
+                    <p class ="error">    {{ form.password2.errors }}  </p>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="notifications" name="notifications" >

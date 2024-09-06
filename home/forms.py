@@ -44,6 +44,25 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'full_name', 'password1', 'password2')
+        
+        class Meta:
+         model = User
+        fields = ['username', 'email']
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Este nome de usuário já existe.")
+        return username 
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get("password1")
+        password2 = cleaned_data.get("password2")
+
+        if password1 and password2 and password1 != password2:
+            self.add_error('password2', "As senhas não coincidem.")
+        return cleaned_data
 
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)

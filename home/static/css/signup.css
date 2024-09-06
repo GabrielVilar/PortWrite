@@ -148,3 +148,10 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
+
+.error {
+    color: #e3342f; 
+    font-size: 14px; 
+    margin: 5px 0; 
+}
+
