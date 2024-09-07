@@ -3,14 +3,24 @@ from profiles.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class CustomAuthenticationForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={
+    username = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': 'Digite seu usuário'
     }))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
+    password = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'Digite sua senha'
     }))
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(

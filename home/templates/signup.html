@@ -7,6 +7,7 @@
     <title>Create Account</title>
     <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{% static 'js/signup.js' %}" defer></script>
 </head>
 <body>
@@ -19,27 +20,39 @@
                 <div class="input-group">
                     <label for="fullName">Full Name:</label>
                     {{ form.full_name }}  
-                    <p class ="error">  {{ form.full_name.errors }} </p>
+                    {% if form.full_name.errors %}
+                        <div class="error">{{ form.full_name.errors }}</div>
+                    {% endif %}
                 </div>
                 <div class="input-group">
                     <label for="email">Email:</label>
                     {{ form.email }} 
-                    <p class ="error">   {{ form.email.errors }}     </p>              
+                    {% if form.email.errors %}
+                        <div class="error">{{ form.email.errors }}</div>
+                    {% endif %}               
                 </div>
                 <div class="input-group">
                     <label for="username">Username:</label>
                     {{ form.username }}  
-                    <p class ="error">    {{ form.username.errors }}  </p>
+                    {% if form.username.errors %}
+                        <div class="error">{{ form.username.errors }}</div>
+                    {% endif %}
                 </div>
                 <div class="input-group">
                     <label for="password1" id="password1">Password:</label>
-                    {{ form.password1 }}  
-                    <p class ="error">    {{ form.password1.errors }} </p>
+                    {{ form.password1 }}
+                    <span class="eye-icon" onclick="togglePasswordVisibility('id_password1', this)" id="pass1">👁️</span>
+                    {% if form.password1.errors %}  
+                        <div class="error">{{ form.password1.errors }}</div>
+                    {% endif %}
                 </div>
                 <div class="input-group">
                     <label for="password2" id="password2">Confirm Password:</label>
                     {{ form.password2 }}  
-                    <p class ="error">    {{ form.password2.errors }}  </p>
+                    <span class="eye-icon" onclick="togglePasswordVisibility('id_password2', this)" id="pass2">👁️</span>
+                    {% if form.password2.errors %}  
+                        <div class="error">{{ form.password2.errors }}</div>
+                    {% endif %}
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="notifications" name="notifications" >

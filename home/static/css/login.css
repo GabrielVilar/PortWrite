@@ -146,5 +146,5 @@ button:hover {
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 18px;
+    display: none;
 }

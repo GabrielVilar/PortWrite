@@ -53,6 +53,7 @@ body {
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+    position: relative;
 }
 
 label {
@@ -70,6 +71,7 @@ input[type="password"] {
     border: 3px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    margin-bottom: 15px;
     border-top: #ccc;
     border-left: #ccc;
     border-right: #ccc;
@@ -110,7 +112,7 @@ input[type="password"]:focus {
 }
 
 .checkbox-group label {
-    margin-right: 25px;
+    margin-left: 10px;
 }
 
 .checkbox-group label a {
@@ -151,7 +153,15 @@ p a:hover {
 
 .error {
     color: #e3342f; 
-    font-size: 14px; 
-    margin: 5px 0; 
+    margin-top: 1%;
+    margin-left: 5%;
 }
 
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+}
