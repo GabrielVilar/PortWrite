@@ -13,7 +13,6 @@ class User(AbstractUser):
         return self.username
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return f'user_{instance.user.id}/{filename}'
 
 class Profile(models.Model):
@@ -23,7 +22,6 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-# Automatically create a Profile when a User is created
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

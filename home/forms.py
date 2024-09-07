@@ -1,5 +1,5 @@
 from django import forms
-from profiles.models import User, ReaderProfile
+from profiles.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class CustomAuthenticationForm(AuthenticationForm):

@@ -1,7 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="{% static 'css/user_page.css' %}">
-<p>{{ user.username }}</p>
-<p>
-    
-</p>
+<div class="box-container">
+    <p>{{ user.username }}</p>
+    <div class="form-writer-container">
+        <p id="title">Edit writer personal data</p>
+    </div>
+    <div class="form-container-fields">
+        <p id="title">Informação do usuário</p>
+        <div class="act-form">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }} 
+                <div class="input-group">
+                    <label for="fullName">Full Name:</label>
+                    {{ form.full_name }}  
+                    {% if form.full_name.errors %}
+                        <div class="error">{{ form.full_name.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    {{ form.email }} 
+                    {% if form.email.errors %}
+                        <div class="error">{{ form.email.errors }}</div>
+                    {% endif %}             
+                </div>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    {{ form.username }}  
+                    {% if form.username.errors %}
+                        <div class="error">{{ form.username.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="save-changes">
+                    <button id="saveChangesBtn" type="submit" style="display:none;">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

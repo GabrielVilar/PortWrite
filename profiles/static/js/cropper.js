@@ -28,3 +28,26 @@ document.getElementById('file-input').addEventListener('change', function(event)
         preview.src = "{% static 'images/default_profile.png' %}";
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var saveChangesBtn = document.getElementById('saveChangesBtn');
+    var inputs = document.querySelectorAll('input');
+
+    // Check if any input field is modified
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            // Show the button if the input field value is changed
+            if (input.value !== input.defaultValue) {
+                saveChangesBtn.style.display = 'block';
+            } else {
+                // Hide the button if no changes are made in all inputs
+                var anyModified = Array.from(inputs).some(function(input) {
+                    return input.value !== input.defaultValue;
+                });
+                if (!anyModified) {
+                    saveChangesBtn.style.display = 'none';
+                }
+            }
+        });
+    });
+});

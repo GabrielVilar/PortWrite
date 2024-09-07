@@ -1,0 +1,132 @@
+.box-container{
+    height: 90%;
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+p{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#title{
+    margin-top: 10px;
+    margin-left: 2%;
+    font-size: 17px;
+}
+
+.form-writer-container{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 6%;
+    margin-right: 2%;
+    margin-left: -60px;
+    width: 50%;
+    
+}
+
+.form-container-fields{
+    margin-top: 6%;
+    width: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+   
+}
+
+.act-form{
+    margin:3%;
+    
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 13px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
+    border: 3px solid #858282;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border: 3px solid #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.save-changes button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 50%;
+    margin-top: 5%;
+}
+
+.save-changes button:hover {
+    background-color: #0056b3;
+}
+
+.error{
+    color: red;
+    text-decoration: none;
+    margin-top: 2%;
+}
+
+@media (max-width: 1068px) {
+    .box-container {
+        flex-direction: column; /* Stack the elements */
+    }
+    p{
+        margin-top: 5%;
+    }
+
+    .form-writer-container, .form-container-fields {
+        width: 100%; /* Make both divs full width */
+        margin-top: 1%;
+    }
+
+    .form-writer-container{
+        
+        margin-left: 0;
+    }
+   
+}

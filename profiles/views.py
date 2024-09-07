@@ -4,14 +4,31 @@ from django.contrib.auth import get_user_model
 from .models import User
 from django.contrib import messages
 from .models import Profile
+from .forms import EditUserForm
 
 User = get_user_model()
 
 @login_required
 def user_profile_view(request, username):
     user = get_object_or_404(User, username=username)
+    # If the current logged-in user is the profile owner, allow editing
+    if request.user == user:
+        if request.method == 'POST':
+            form = EditUserForm(request.POST, instance=user)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Your profile has been updated successfully.')
+                return redirect('user_profile', username=user.username)  # Reload profile page
+            else:
+                messages.error(request, 'Please correct the errors below.')
+        else:
+            form = EditUserForm(instance=user)
+    else:
+        form = None  # Do not show the form if the user is viewing another user's profile
+
     return render(request, 'user_menu.html', {
         'user': user,
+        'form': form,  # Pass the form to the template
         'current_url': request.resolver_match.url_name
     })
 
@@ -53,3 +70,24 @@ def update_profile_picture(request):
         return redirect('user_profile', username=request.user.username)
     
     return redirect('user_profile', username=request.user.username)
+
+@login_required
+def user_edit_view(request, username):
+    user = get_object_or_404(User, username=username)
+
+    if request.method == 'POST':
+        form = EditUserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated successfully.')
+            return redirect('home')  # Redirect to home page after successful update
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = EditUserForm(instance=user)
+
+    return render(request, 'settings.html', {
+        'user': user,
+        'form': form,
+        'current_url': request.resolver_match.url_name
+    })
