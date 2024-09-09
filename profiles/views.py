@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from .models import User
 from django.contrib import messages
 from .models import Profile
@@ -35,8 +36,25 @@ def user_profile_view(request, username):
 @login_required
 def user_settings_view(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'settings.html', {
+
+    if request.user == user:
+        if request.method == 'POST':
+            form = PasswordChangeForm(request.user, request.POST)  # Use the built-in form
+            if form.is_valid():
+                user = form.save()
+                update_session_auth_hash(request, user)  # Important to prevent logout
+                messages.success(request, 'Your password was successfully updated!')
+                return redirect('user_settings', username=request.user.username)
+            else:
+                messages.error(request, 'Please correct the errors below.')
+        else:
+            form = PasswordChangeForm(request.user)  # Initialize the form with the user
+    else:
+        form = None  # Do not show the form if the user is viewing another user's profile
+        
+    return render(request, 'user_menu.html', {
         'user': user,
+        'form': form,  # Pass the form to the template
         'current_url': request.resolver_match.url_name
     })
 

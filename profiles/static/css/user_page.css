@@ -6,7 +6,7 @@
 }
 
 p{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -18,15 +18,19 @@ p{
 
 .form-writer-container{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin-top: 6%;
+    margin-top: 5%;
     margin-right: 2%;
-    margin-left: -60px;
+    margin-left: -57px;
     width: 50%;
     
 }
 
+#settings{
+    margin-left: -145px;
+}
+
 .form-container-fields{
-    margin-top: 6%;
+    margin-top: 5%;
     width: 50%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
    

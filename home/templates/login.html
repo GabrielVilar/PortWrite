@@ -16,14 +16,21 @@
             <a href="{% url 'home' %}" class="PortButton"><h2>PortWriter</h2></a>
             <form method="POST">
                 {% csrf_token %}
+                {{ form.non_field_errors }} 
                 <div class="input-group">
                     <label for="username">Username</label>
                     {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="error">{{ form.username.errors }}</div>
+                    {% endif %}
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
                     {{ form.password }}
                     <span class="eye-icon" onclick="togglePasswordVisibility('id_password', this)" id="pass1">👁️</span>
+                    {% if form.password.errors %}
+                        <div class="error">{{ form.password.errors }}</div>
+                    {% endif %}
                 </div>
                 <div class="forgot-password">
                     <a href="#">Forgot?</a>

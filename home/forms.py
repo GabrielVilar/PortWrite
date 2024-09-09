@@ -24,7 +24,7 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(
-        max_length=254,
+        max_length=256,
         required=True,
         widget=forms.EmailInput(attrs={'placeholder': 'Enter Email'})
     )
