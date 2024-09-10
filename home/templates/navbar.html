@@ -27,19 +27,20 @@
             </div>
             {% endif %}
             {% if user.is_authenticated %}
-                <a href="{% url 'user_profile' user.username %}" class="user_button">
-                    <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
-                    {{ user.username }}
-                </a>       
-                {% comment %} <div id="dropdown-menu" class="dropdown-menu">
-                    <a href="">Profile</a>
-                    <a href="{% url 'logout' %}">Logout</a>
-                    <a href="#">Artigos</a>
-                </div>  {% endcomment %} 
-            {% else %}
-                <a href="{% url 'login' %}" class="login-button">Login</a>
-            {% endif %}
+            <a href="#" id="profile-pic-link" class="user_button" onclick="toggleMenu(event)">
+                <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                {{ user.username }}
+            </a>  
+            <!-- Menu drop-down -->
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="">Configurações</a>
+                <a href="{% url 'logout' %}">Sair</a>
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-button">Login</a>
+        {% endif %}
         </nav>
     </header>
 </body>
 </html>
+
