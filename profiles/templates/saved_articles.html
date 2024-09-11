@@ -3,19 +3,17 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'css/saved_articles.css' %}">
-       
     </head>
     <body>
         <header>
             {% include 'navbar.html' with show_search=True search_js=True %}
         </header>
-        
-            <div class ="name-feed">
-                <h4>Artigos Salvos</h4>
-            </div>
-            <div class="title-container">
-            </div>
-                <section>
+        <main>
+            <section>
+                <div class="title-container">
+                    <div class ="name-feed">
+                        <h4>Artigos Salvos</h4>
+                    </div>
                     <div class="container">
                         <div class="card">
                             <div class="icon">
@@ -72,6 +70,7 @@
                             <button class="learn"> <a href="#">Learn more </a> </button> 
                         </div>
                     </div>
+                </div>
             </section>
         </main>
     </body>

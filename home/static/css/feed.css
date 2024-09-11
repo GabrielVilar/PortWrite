@@ -1,23 +1,22 @@
-.title-container {
-    /* Linha completa abaixo do contêiner */
-     border-bottom: 2px solid #4f4e4e;
-     width: 90%;
-     margin-bottom: 20px; /* Espaço abaixo da linha */
-     margin-left: 95px;
- }
- 
- .name-feed  {
+.title-container{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.name-feed  {
      font-family: Arial;
      color: #4f4e4e;
      font-size: 11px;
-     padding-top: 50px;
-     padding-left: 90px;   
- }
+     padding-top: 40px;
+     padding-left: 0px;   
+}
  
- h4{
+h4{
      padding: 5px;
- }
- 
+}
+
  /*.articles {
      display: flex;
      justify-content: space-between;
@@ -66,7 +65,9 @@
      border-radius: 20px;
      cursor: pointer;
  }*/
+
  .container {
+    border-top: 2px solid black;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -124,4 +125,10 @@ a {
     cursor: pointer;
     outline: none;
 
+}
+
+@media (max-width: 768px) {
+    .title-container{
+        width: 100%;
+    }
 }

@@ -16,6 +16,7 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 70px;
+    padding: 0 20px; 
 }
 
 .logo {
@@ -46,6 +47,7 @@ header {
     background-color: #f1f3f5;
     border-radius: 20px;
     padding: 5px 10px;
+    position: relative;
 }
 
 .search input {
@@ -71,6 +73,7 @@ header {
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
+    position: relative;
 }
 
 .login-button:hover{
@@ -91,6 +94,7 @@ header {
     transition: all 0.3s ease;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
 }
 
 .user_button:hover {
@@ -102,26 +106,25 @@ header {
 
 .user_button .profile-picture {
     margin-left: -14px;
-    margin-right: 10px; /* Adds space between the image and the text */
+    margin-right: 10px; 
     width: 40px;
     height: 40px;
     border-radius: 30px;
 }
 
 .dropdown-menu {
-    display: none; 
+    display: none;
     position: absolute;
-    top: 100%; /* Posiciona o menu logo abaixo da imagem */
-    right: 0; /* Alinha à direita da imagem */
+    top: 100%;  
+    right: 0;    
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 10px;
     border-radius: 4px;
-    width: 150px; /* Largura fixa para o menu */
+    width: 150px;
 }
 
-/* Estilo dos links no menu drop-down */
 .dropdown-menu a {
     text-decoration: none;
     color: black;
@@ -129,7 +132,7 @@ header {
     padding: 8px 12px;
 }
 
-/* Muda o estilo ao passar o mouse */
 .dropdown-menu a:hover {
     background-color: #f1f1f1;
+    text-decoration: none;
 }
