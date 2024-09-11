@@ -18,7 +18,9 @@ def user_directory_path(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to=user_directory_path, default='default.png')
-    
+    biography = models.TextField(blank=True, null=True)  # Add biography
+    social_media_links = models.JSONField(blank=True, null=True)  # Add social media links as JSON (you could also use other approaches)
+
     def __str__(self):
         return f'{self.user.username} Profile'
 

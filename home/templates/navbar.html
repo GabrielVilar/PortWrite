@@ -33,7 +33,7 @@
             </a>  
             <!-- Menu drop-down -->
             <div id="dropdown-menu" class="dropdown-menu">
-                <a href="">Configurações</a>
+                <a href="{% url 'user_profile' user.username %}">Perfil</a>
                 <a href="{% url 'logout' %}">Sair</a>
             </div>
         {% else %}
