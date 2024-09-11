@@ -109,3 +109,13 @@ def user_edit_view(request, username):
         'form': form,
         'current_url': request.resolver_match.url_name
     })
+
+@login_required
+def user_create_articles_view(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, 'create_articles.html', {'user': user})
+
+@login_required
+def user_articles_view(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, 'user_articles.html', {'user': user})
