@@ -22,7 +22,6 @@ p{
     margin-right: 2%;
     margin-left: -57px;
     width: 50%;
-    
 }
 
 #settings{
@@ -33,12 +32,10 @@ p{
     margin-top: 5%;
     width: 50%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-   
 }
 
 .act-form{
     margin:3%;
-    
 }
 
 .input-group {
@@ -117,19 +114,18 @@ input[type="password"]:focus {
 
 @media (max-width: 1068px) {
     .box-container {
-        flex-direction: column; /* Stack the elements */
+        flex-direction: column; 
     }
     p{
         margin-top: 5%;
     }
 
     .form-writer-container, .form-container-fields {
-        width: 100%; /* Make both divs full width */
+        width: 100%; 
         margin-top: 1%;
     }
 
     .form-writer-container{
-        
         margin-left: 0;
     }
    

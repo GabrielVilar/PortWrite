@@ -51,7 +51,6 @@ class ChangePasswordForm(PasswordChangeForm):
         required=True,
         widget=forms.PasswordInput(attrs={'class': 'form-control'})
     )
-
     class Meta:
         model = User
         fields = ['old_password', 'new_password1', 'new_password2']

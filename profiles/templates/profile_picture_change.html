@@ -21,13 +21,13 @@
                 <!-- Flexbox for Change and Remove buttons -->
                 <div class="button-group">
                     <button type="submit" class="btn" id="change-btn">Change</button>
-            </form>
-            
-            <!-- Separate form for removing the profile picture -->
-            <form action="{% url 'update_profile_picture' %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" name="remove_picture" class="btn" id="remove-btn">Remove</button>
-            </form>
+                    </form>
+                    
+                    <!-- Separate form for removing the profile picture -->
+                    <form action="{% url 'update_profile_picture' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" name="remove_picture" class="btn" id="remove-btn">Remove</button>
+                    </form>
                 </div>
         </div>
     </div>

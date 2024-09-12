@@ -1,11 +1,15 @@
 document.getElementById("change-profile-pic-link").addEventListener("click", function(event) {
+    var content = document.getElementById('includes');
     event.preventDefault();
     document.getElementById("profile-picture-change-container").style.display = "block";
+    content.style.display = "none";
 });
 
 document.getElementById("cancel-btn").addEventListener("click", function(event) {
+    var content = document.getElementById('includes');
     event.preventDefault();
     document.getElementById("profile-picture-change-container").style.display = "none";
+    content.style.display = "block";
 });
 
 // JavaScript to handle image preview

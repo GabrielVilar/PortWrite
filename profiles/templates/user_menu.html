@@ -27,7 +27,6 @@
                 <div id="profile-picture-change-container" style="display: none;">
                     {% include 'profile_picture_change.html' %}
                 </div>
-
             </div>
             <ul>
                 <a href="{% url 'user_profile' user.username %}" class="{% if current_url == 'user_profile' %}active{% endif %}">
@@ -77,7 +76,7 @@
                 </a>
             </ul>
         </div>
-        <div class="content">
+        <div class="content" id="includes"> 
             {% if current_url == 'user_profile' %}
                 {% include 'user_page.html'%}
             {% endif %}
