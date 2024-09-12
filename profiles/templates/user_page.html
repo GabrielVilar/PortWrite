@@ -3,7 +3,20 @@
     <p>{{ user.username }}</p>
     {% if user.is_writer %}
         <div class="form-writer-container">
-            <p id="title">Edit writer personal data</p>
+            <p id="title">Informações do escritor</p>
+            <div class="act-form">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }} 
+                    <div class="input-group">
+                        <label for="biography">Biography:</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <div class="form-writer-container">
+            <p id="title">Não é um escrior ainda</p>
         </div>
     {% endif %}
     <div class="form-container-fields">

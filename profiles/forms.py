@@ -34,6 +34,7 @@ class EditUserForm(forms.ModelForm):
         if User.objects.filter(username=username).exclude(id=self.instance.id).exists():
             raise forms.ValidationError('This username is already taken.')
         return username
+    
 
 class ChangePasswordForm(PasswordChangeForm):
     old_password = forms.CharField(

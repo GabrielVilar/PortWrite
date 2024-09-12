@@ -35,7 +35,9 @@ document.getElementById('file-input').addEventListener('change', function(event)
 
 document.addEventListener("DOMContentLoaded", function() {
     var saveChangesBtn = document.getElementById('saveChangesBtn');
-    var inputs = document.querySelectorAll('input');
+    // Select inputs only inside the 'form-container-fields' div
+    var formContainer = document.querySelector('.form-container-fields');
+    var inputs = formContainer.querySelectorAll('input');
 
     // Check if any input field is modified
     inputs.forEach(function(input) {
