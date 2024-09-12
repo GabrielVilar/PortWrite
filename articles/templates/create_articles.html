@@ -12,5 +12,44 @@
 <body>
     <header>
         {% include 'navbar.html' with show_search=False search_js=False %}
-    </header>       
-</body>
+    </header>    
+    
+    <body>
+
+        <div class="container">
+            <h1>Comece a escrever seu artigo</h1>
+            
+            <!-- Barra de seleção de conteúdo -->
+            <div class="content-selection">
+                <div class="content-item" onclick="addContent('image')">Imagem</div>
+                <div class="content-item" onclick="addContent('text')">Texto</div>
+                <div class="content-item" onclick="addContent('grid')">Grade de fotos</div>
+                <div class="content-item" onclick="addContent('video')">Vídeo e áudio</div>
+                <div class="content-item" onclick="addContent('embed')">Incorporar</div>
+            </div>
+            
+            <!-- Seção para adicionar conteúdo -->
+            <div class="content-area" contenteditable="true" id="contentArea">
+                
+            </div>
+    
+       
+            <button class="publish-button" onclick="publishArticle()">Publicar artigo</button>
+    
+           
+            <div class="menu-right">
+                <h3>Adicionar conteúdo</h3>
+                <div class="menu-item" onclick="addContent('image')">Imagem</div>
+                <div class="menu-item" onclick="addContent('text')">Texto</div>
+                <div class="menu-item" onclick="addContent('grid')">Grade de fotos</div>
+                <div class="menu-item" onclick="addContent('video')">Vídeo/Áudio</div>
+                <div class="menu-item" onclick="addContent('embed')">Incorporado</div>
+                <div class="menu-item">Lightroom</div>
+                <div class="menu-item">Protótipo</div>
+                <div class="menu-item">3D</div>
+            </div>
+        </div>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>

@@ -95,6 +95,7 @@ header {
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
     position: relative;
+    margin-right: 60px;
 }
 
 .user_button:hover {
@@ -112,27 +113,39 @@ header {
     border-radius: 30px;
 }
 
-.dropdown-menu {
-    display: none;
+
+.nav-button {
+    position: relative; /* Para que o dropdown seja posicionado em relação a este botão */
+    display: inline-block;
+  }
+  
+ 
+  .dropdown-menu {
+    display: none; /* Menu oculto inicialmente */
     position: absolute;
-    top: 100%;  
-    right: 0;    
+    top: 100%; 
+    right: 0; /* Alinha o menu à direita do botão */
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 10px;
     border-radius: 4px;
     width: 150px;
-}
+   
+  }
+  
 
-.dropdown-menu a {
+  .dropdown-menu a {
     text-decoration: none;
     color: black;
     display: block;
     padding: 8px 12px;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f1f1f1;
-    text-decoration: none;
-}
+  }
+  
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+    outline: none;
+  }
+  
+  
