@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ user.username }}'s Profile</title>
+    <title>{{ writer.username }}'s Profile</title>
     <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/writer_page.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -18,10 +18,10 @@
     <div class="writer-container">
         <div class="writer-left-side">
             <div class="writer-image">
-                <img src="{{ profile.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture">
+                <img src="{{ profile.profile_picture.url }}" alt="{{ writer.username }}'s Profile Picture">
             </div>
             <div class="name-div">
-                <p>{{ user.username }}</p>
+                <p>{{ writer.username }}</p>
             </div>
             <div clas="social-media">
                 <div class="social-media-link">

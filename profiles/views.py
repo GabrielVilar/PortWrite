@@ -154,12 +154,12 @@ def user_articles_view(request, username):
 
 def writer_profile_view(request, username):
     # Get the writer's user object based on the username
-    user = get_object_or_404(User, username=username, is_writer=True)
+    writer = get_object_or_404(User, username=username, is_writer=True)
     # Get the writer's profile
-    profile = get_object_or_404(Profile, user=user)
+    profile = get_object_or_404(Profile, user=writer)
 
     context = {
-        'user': user,
+        'writer': writer,
         'profile': profile,
     }
     
