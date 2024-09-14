@@ -43,6 +43,12 @@ p{
     margin-bottom: 20px;
 }
 
+.social-media-field{
+    text-align: left;
+    margin-bottom: 25px;
+    color: black;
+}
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -51,10 +57,26 @@ label {
     font-weight: bold;
 }
 
+#social-media-label{
+    width: 30%;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
+    padding: 13px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+}
+
+input[type="url"]{
+    width: 80%;
+    margin-bottom: 2%;
     padding: 13px;
     border: 3px solid #ccc;
     border-radius: 5px;
@@ -76,9 +98,30 @@ input[type="password"]:hover {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+input[type="url"]:hover{
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
+    outline: none;
+    border: 3px solid #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="url"]:focus{
     outline: none;
     border: 3px solid #007bff;
     border-radius: 5px;
@@ -106,10 +149,162 @@ input[type="password"]:focus {
     background-color: #0056b3;
 }
 
+.save-changes #saveChangesBtnWriter{
+    margin-top: -28%;
+    margin-bottom: 20%;
+}
+
 .error{
     color: red;
     text-decoration: none;
     margin-top: 2%;
+}
+
+#id_biography{
+    margin-top: 1%;
+    margin-bottom: 2%;
+    width: 100%;
+    height: 180px;
+    border: 1px solid #cacaca;
+}
+
+/* Modal styling */
+#socialMediaModal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#socialMediaModal .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 390px;
+    height: 325px;
+}
+
+#socialMediaModal .close {
+    color: #888;
+    position: absolute;
+    top: 3%;
+    right: 4%;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#socialMediaModal .close:hover,
+#socialMediaModal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#addSocialMediaFieldBtn{
+    width: 120px;
+    position: absolute;
+    bottom: 5%;
+    border: none;
+    right: 5%;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 5%;
+}
+
+#addSocialMediaFieldBtn:hover{
+    background-color: #0056b3;
+}
+
+#socialMediaSelect{
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+}
+
+#socialMediaSelect:focus{
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 18px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+}
+
+#addSocialMediaBtn{
+    width: 220px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 20%;
+}
+
+#addSocialMediaBtn:hover{
+    background-color: #0056b3;
+}
+
+.social-media-field{
+    color: black;
+    margin-bottom: 3%;
+}
+
+.remove-social-media-btn{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 15%;
+    margin-left: 10%;
+    border: none;
+    align-items: center;
+}
+
+.remove-social-media-btn:hover{
+    background-color: rgb(138, 17, 17);
+}
+
+#charCount{
+    text-align: right;
+    font-size: 14px;
+    width: 150px;
+    margin-left: 80%;
+    display: none;
+}
+
+.form-writer-container a{
+    color: white;
+}
+
+.link-perfil{
+    background-color: #007bff;
+    border-radius: 5px;
+    width: 30%;
+    margin-top: -40px;
+    margin-left: 67%;
+    text-align: center;
+    padding: 4px;
+}
+
+.link-perfil:hover{
+    background-color: #0056b3;
+}
+
+.form-writer-container a:hover{
+    text-decoration: none;
+    color: white;
 }
 
 @media (max-width: 1068px) {

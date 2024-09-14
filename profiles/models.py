@@ -18,8 +18,13 @@ def user_directory_path(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to=user_directory_path, default='default.png')
-    biography = models.TextField(blank=True, null=True)  # Add biography
-    social_media_links = models.JSONField(blank=True, null=True)  # Add social media links as JSON (you could also use other approaches)
+    biography = models.TextField(blank=True, null=True)  
+    instagram = models.URLField(max_length=255, blank=True, null=True)
+    linkedin = models.URLField(max_length=255, blank=True, null=True)
+    facebook = models.URLField(max_length=255, blank=True, null=True)
+    youtube = models.URLField(max_length=255, blank=True, null=True)
+    tiktok = models.URLField(max_length=255, blank=True, null=True)
+    github = models.URLField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -40,3 +45,40 @@ class ReaderProfile(models.Model):
     
     def __str__(self):
         return f'Reader Profile of {self.user.username}'
+
+#     ICON_CHOICES = [
+#         ('instagram', 'Instagram'),
+#         ('facebook', 'Facebook'),
+#         ('youtube', 'YouTube'),
+#         ('tiktok', 'TikTok'),
+#         ('linkedin', 'LinkedIn'),
+#         ('github', 'GitHub'),
+#     ]
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     profile_picture = models.ImageField(upload_to=user_directory_path, default='default.png')
+#     biography = models.TextField(blank=True, null=True)  # Add biography
+#     social_media_links = models.JSONField(default=list, blank=True)
+
+#     def add_social_media(self, platform, icon, link):
+#         if platform not in dict(self.ICON_CHOICES).keys():
+#             raise ValidationError(f'Invalid platform: {platform}. Choose a valid platform.')
+
+#         validate = URLValidator()
+#         try:
+#             validate(link)
+#         except ValidationError as e:
+#             raise ValidationError(f'Invalid URL: {link}')
+
+#         for social_media in self.social_media_links:
+#             if social_media['platform'] == platform:
+#                 raise ValidationError(f'Social media link for {platform} already exists.')
+
+#         social_media_entry = {
+#             'platform': platform,
+#             'icon': icon,
+#             'link': link
+#         }
+
+#         self.social_media_links.append(social_media_entry)
+#         self.save()
+#         print(f"Added social media link: {social_media_entry}")  

@@ -5,32 +5,64 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .models import User
 from django.contrib import messages
 from .models import Profile
-from .forms import EditUserForm
+from .forms import EditUserForm, WriterProfileForm
 
 User = get_user_model()
 
 @login_required
 def user_profile_view(request, username):
     user = get_object_or_404(User, username=username)
-    # If the current logged-in user is the profile owner, allow editing
+    profile = get_object_or_404(Profile, user=user)
+    edit_user_form = EditUserForm(instance=user)
+    writer_profile_form = WriterProfileForm(instance=profile)
+
+    added_social_media = {
+        'instagram': bool(profile.instagram),
+        'linkedin': bool(profile.linkedin),
+        'facebook': bool(profile.facebook),
+        'youtube': bool(profile.youtube),
+        'tiktok': bool(profile.tiktok),
+        'github': bool(profile.github),
+    }
+   
     if request.user == user:
         if request.method == 'POST':
-            form = EditUserForm(request.POST, instance=user)
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Your profile has been updated successfully.')
-                return redirect('user_profile', username=user.username)  # Reload profile page
-            else:
-                messages.error(request, 'Please correct the errors below.')
-        else:
-            form = EditUserForm(instance=user)
-    else:
-        form = None  # Do not show the form if the user is viewing another user's profile
+            if 'edit_user_form' in request.POST:
+                edit_user_form = EditUserForm(request.POST, instance=user)
+                if edit_user_form.is_valid():
+                    edit_user_form.save()
+                    messages.success(request, 'Your profile has been updated successfully.')
+                    return redirect('user_profile', username=user.username)
+                else:
+                    messages.error(request, 'Please correct the errors below.')
 
+            elif 'writer_profile_form' in request.POST:
+                writer_profile_form = WriterProfileForm(request.POST, instance=profile)
+                if writer_profile_form.is_valid():
+                    writer_profile_form.save()
+                    messages.success(request, 'Your writer profile has been updated successfully.')
+                    return redirect('user_profile', username=user.username)
+                else:
+                    messages.error(request, 'Please correct the errors below.')
+                    
+            elif 'remove_social_media' in request.POST:
+                platform = request.POST.get('remove_social_media')
+                if platform in ['instagram', 'linkedin', 'facebook', 'youtube', 'tiktok', 'github']:
+                    # Set the respective field in the profile to None
+                    setattr(profile, platform, '')
+                    profile.save()
+                    messages.success(request, f'{platform.capitalize()} has been removed successfully.')
+                    return redirect('user_profile', username=user.username)
+    else:
+        edit_user_form = None 
+        writer_profile_form = None 
+ 
     return render(request, 'user_menu.html', {
         'user': user,
-        'form': form,  # Pass the form to the template
-        'current_url': request.resolver_match.url_name
+        'edit_user_form': edit_user_form,
+        'writer_profile_form': writer_profile_form,
+        'added_social_media': added_social_media,
+        'current_url': request.resolver_match.url_name,
     })
 
 @login_required
