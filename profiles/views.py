@@ -151,3 +151,17 @@ def user_create_articles_view(request, username):
 def user_articles_view(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'user_articles.html', {'user': user})
+
+def writer_profile_view(request, username):
+    # Get the writer's user object based on the username
+    user = get_object_or_404(User, username=username, is_writer=True)
+    # Get the writer's profile
+    profile = get_object_or_404(Profile, user=user)
+
+    context = {
+        'user': user,
+        'profile': profile,
+    }
+    
+    # Render the profile page
+    return render(request, 'writer_page.html', context)

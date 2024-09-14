@@ -4,7 +4,7 @@
     {% if user.is_writer %}
         <div class="form-writer-container">
             <p id="title">Informações do escritor</p>
-            <a href="" id="link-perfil-writer">
+            <a href="{% url 'writer_profile' user.username %}" id="link-perfil-writer">
                 <div class="link-perfil">
                     Página do Perfil
                 </div>

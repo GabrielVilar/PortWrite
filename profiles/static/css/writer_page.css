@@ -1,0 +1,103 @@
+.writer-container{
+    width: 80%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.writer-left-side{
+    align-items: center;
+    width: 30%;
+}
+
+.writer-right-side{
+    width: 80%;
+}
+
+.writer-image{
+    width: 175px;
+    margin-top: 5%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.writer-image img{
+    width: 175px;
+    height: 175px;
+    border-radius: 90px;
+}
+
+.name-div{
+    text-align: center;
+}
+
+.name-div p{
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+.social-media-link{
+    margin-top: -16px;
+    text-align: center;
+}
+
+.social-media-link a:hover{
+    text-decoration: none;
+}
+
+.bi-instagram, .bi-linkedin, .bi-facebook, .bi-youtube, .bi-tiktok, .bi-github {
+    width: 25px;
+    height: 25px;
+    margin-left: 2%;
+    margin-bottom: 5%;
+    color: black;
+}
+
+.bi-instagram:hover, .bi-linkedin:hover, .bi-facebook:hover, .bi-youtube:hover, .bi-tiktok:hover, .bi-github:hover {
+    color: #007bff;
+}
+
+.full-name{
+    margin-top: 2%;
+}
+
+.full-name p{
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+}
+
+.biography{
+    width: 70%;
+    margin-bottom: 3%;
+}
+
+#biografia{
+   color: black;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+#texto{
+    margin-top: 2px;
+    color: black;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .writer-container {
+        flex-direction: column; /* Stack the elements */
+    }
+
+    .writer-left-side, .writer-right-side {
+        width: 100%; /* Make both divs full width */
+    }
+
+}
