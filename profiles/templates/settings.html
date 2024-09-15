@@ -3,31 +3,37 @@
 <div class="box-container">
     <p>Configurações</p>
     <div class="form-writer-container" id="settings">
-        <p id="title">Privacidade</p>
-    </div>
-    <div class="form-container-fields">
         <p id="title">Segurança - Trocar senha</p>
         <div class="act-form">
             <form method="POST">
                 {% csrf_token %} 
                 {{ form.non_field_errors }} 
                 <div class="input-group">
-                    <label for="password">Current Password:</label>
+                    <label for="password" id="labes">Current Password:</label>
                     {{ form.old_password }}
+                    <button type="button" class="toggle-password" data-target="id_old_password">
+                        👁️
+                    </button>
                     {% if form.old_password.errors %}
                         <div class="error">{{ form.old_password.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="input-group">
-                    <label for="password1">New Password:</label>
+                    <label for="password1" id="labes">New Password:</label>
                     {{ form.new_password1 }}
+                    <button type="button" class="toggle-password" data-target="id_new_password1">
+                        👁️
+                    </button>
                     {% if form.new_password1.errors %}
                         <div class="error">{{ form.new_password1.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="input-group">
-                    <label for="password2">Repeat New Password:</label>
+                    <label for="password2" id="labes">Repeat New Password:</label>
                     {{ form.new_password2 }}
+                    <button type="button" class="toggle-password" data-target="id_new_password2">
+                       👁️
+                    </button>
                     {% if form.new_password2.errors %}
                         <div class="error">{{ form.new_password2.errors }}</div>
                     {% endif %}
@@ -37,5 +43,8 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div class="form-container-fields ">
+        {{ user.notifications }}
     </div>
 </div>

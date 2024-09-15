@@ -36,7 +36,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
 document.addEventListener("DOMContentLoaded", function() {
     var saveChangesBtn = document.getElementById('saveChangesBtn');
     // Select inputs only inside the 'form-container-fields' div
-    var formContainer = document.querySelector('.form-container-fields');
+    var formContainer = document.querySelector('.form-writer-container');
     var inputs = formContainer.querySelectorAll('input');
 
     // Check if any input field is modified
@@ -216,5 +216,14 @@ document.addEventListener('DOMContentLoaded', function () {
     biographyTextarea.addEventListener('input', function() {
         const currentLength = biographyTextarea.value.length;
         charCountElement.textContent = `${currentLength} / ${maxChars}`;
+    });
+});
+
+document.querySelectorAll('.toggle-password').forEach(button => {
+    button.addEventListener('click', function () {
+        const target = document.getElementById(this.getAttribute('data-target'));
+        const type = target.getAttribute('type') === 'password' ? 'text' : 'password';
+        target.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🙈';
     });
 });

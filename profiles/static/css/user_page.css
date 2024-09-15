@@ -64,7 +64,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 70%;
     padding: 13px;
     border: 3px solid #ccc;
     border-radius: 5px;
@@ -307,6 +307,36 @@ input[type="url"]:focus{
     color: white;
 }
 
+.toggle-password {
+    position: absolute;
+    outline: none;
+    left: 63%;
+    top: 68%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.toggle-password:focus{
+    border: none;
+    outline: none;
+}
+
+#labes{
+    width: 60%;
+}
+
+.form-container-fields a{
+    color: #007bff;
+    font-weight: bold;
+}
+
+.form-container-fields a:hover{
+    color: #0056b3;
+}
+
 @media (max-width: 1068px) {
     .box-container {
         flex-direction: column; 
@@ -322,6 +352,15 @@ input[type="url"]:focus{
 
     .form-writer-container{
         margin-left: 0;
+        margin-bottom: 3%;
+    }
+    
+    .form-container-fields {
+        margin-bottom: 10%;
+    }
+
+    #settings{
+        margin-left: 1px;
     }
    
 }

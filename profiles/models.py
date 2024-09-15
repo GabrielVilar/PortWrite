@@ -18,6 +18,7 @@ def user_directory_path(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to=user_directory_path, default='default.png')
+    
     biography = models.TextField(blank=True, null=True)  
     instagram = models.URLField(max_length=255, blank=True, null=True)
     linkedin = models.URLField(max_length=255, blank=True, null=True)
@@ -25,6 +26,9 @@ class Profile(models.Model):
     youtube = models.URLField(max_length=255, blank=True, null=True)
     tiktok = models.URLField(max_length=255, blank=True, null=True)
     github = models.URLField(max_length=255, blank=True, null=True)
+
+    notifications = models.BooleanField(default=False)
+    privacy_policy = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Profile'

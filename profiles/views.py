@@ -68,6 +68,7 @@ def user_profile_view(request, username):
 @login_required
 def user_settings_view(request, username):
     user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
 
     if request.user == user:
         if request.method == 'POST':
@@ -86,6 +87,7 @@ def user_settings_view(request, username):
         
     return render(request, 'user_menu.html', {
         'user': user,
+        'user_profile': profile,
         'form': form,  # Pass the form to the template
         'current_url': request.resolver_match.url_name
     })
@@ -153,9 +155,7 @@ def user_articles_view(request, username):
     return render(request, 'user_articles.html', {'user': user})
 
 def writer_profile_view(request, username):
-    # Get the writer's user object based on the username
     writer = get_object_or_404(User, username=username, is_writer=True)
-    # Get the writer's profile
     profile = get_object_or_404(Profile, user=writer)
 
     context = {
@@ -163,5 +163,4 @@ def writer_profile_view(request, username):
         'profile': profile,
     }
     
-    # Render the profile page
     return render(request, 'writer_page.html', context)

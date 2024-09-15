@@ -55,12 +55,12 @@
                     {% endif %}
                 </div>
                 <div class="checkbox-group">
-                    <input type="checkbox" id="notifications" name="notifications" >
+                    {{ form.notifications }}
                     <label for="notifications">Receber notificações por email</label>
                 </div>
                 <div class="checkbox-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">Aceita termos de <a href="terms"> política e privacidade</a></label>
+                    {{ form.privacy_policy }}
+                    <label for="terms">Aceita termos de <a href="terms"> política de privacidade</a></label>
                 </div>
                 <div class= "create-account">
                 <button type="submit">Create Account</button>

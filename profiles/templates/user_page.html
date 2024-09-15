@@ -196,21 +196,21 @@
                 {% csrf_token %}
                 {{ edit_user_form.non_field_errors }} 
                 <div class="input-group">
-                    <label for="fullName">Full Name:</label>
+                    <label for="fullName" id="labes">Full Name:</label>
                     {{ edit_user_form.full_name }}  
                     {% if edit_user_form.full_name.errors %}
                         <div class="error">{{ edit_user_form.full_name.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="input-group">
-                    <label for="email">Email:</label>
+                    <label for="email" id="labes">Email:</label>
                     {{ edit_user_form.email }} 
                     {% if edit_user_form.email.errors %}
                         <div class="error">{{ edit_user_form.email.errors }}</div>
                     {% endif %}             
                 </div>
                 <div class="input-group">
-                    <label for="username">Username:</label>
+                    <label for="username" id="labes">Username:</label>
                     {{ edit_user_form.username }}  
                     {% if edit_user_form.username.errors %}
                         <div class="error">{{ edit_user_form.username.errors }}</div>

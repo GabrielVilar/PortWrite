@@ -1,5 +1,5 @@
 from django import forms
-from profiles.models import User
+from profiles.models import  User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class CustomAuthenticationForm(AuthenticationForm):
@@ -49,15 +49,18 @@ class SignUpForm(UserCreationForm):
         widget=forms.PasswordInput(attrs={'placeholder': 'Password comfirmation'})
     )
 
+    notifications = forms.BooleanField(required=False, label="Receive email notifications")
+    privacy_policy = forms.BooleanField(required=True, label="Accept Privacy Policy")
     profile_picture = forms.ImageField(required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'full_name', 'password1', 'password2')
+        fields = ('username', 'email', 'full_name', 'password1', 'password2', 'notifications', 'privacy_policy')
         
         class Meta:
          model = User
         fields = ['username', 'email']
+        
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
@@ -80,4 +83,5 @@ class SignUpForm(UserCreationForm):
         user.full_name = self.cleaned_data['full_name']
         if commit:
             user.save()
+           
         return user
