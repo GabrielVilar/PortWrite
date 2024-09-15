@@ -17,9 +17,9 @@ function addContent(type) {
         case 'grid':
             const gridHtml = `
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                    <img src="https://via.placeholder.com/150" alt="Foto 1">
-                    <img src="https://via.placeholder.com/150" alt="Foto 2">
-                    <img src="https://via.placeholder.com/150" alt="Foto 3">
+                    <img src="" alt="Foto 1">
+                    <img src="" alt="Foto 2">
+                    <img src="" alt="Foto 3">
                 </div>`;
             contentArea.innerHTML += gridHtml;
             break;
@@ -51,3 +51,6 @@ function publishArticle() {
         alert("O conteúdo está vazio. Adicione algo antes de publicar.");
     }
 }
+
+
+
