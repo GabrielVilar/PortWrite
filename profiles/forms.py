@@ -33,10 +33,10 @@ class EditUserForm(forms.ModelForm):
         return username
 class WriterProfileForm(forms.ModelForm):
     biography = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': 5, 'maxlength': 1500}),
+        widget=forms.Textarea(attrs={'rows': 5, 'maxlength': 2036}),
         required=True,
         label="Biografia",
-        help_text="Write a short biography (max 1500 characters)."
+        help_text="Write a short biography (max 2036 characters)."
     )
     
     instagram = forms.URLField(
@@ -77,18 +77,38 @@ class ChangePasswordForm(PasswordChangeForm):
     old_password = forms.CharField(
         max_length=100,
         required=True,
-        widget=forms.PasswordInput(attrs={'class': 'form-control'})
-    )
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Digite sua senha'
+    }))
+
     new_password1 = forms.CharField(
         max_length=100,
         required=True,
-        widget=forms.PasswordInput(attrs={'class': 'form-control'})
-    )
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Digite sua senha'
+    }))
+
     new_password2 = forms.CharField(
         max_length=100,
         required=True,
-        widget=forms.PasswordInput(attrs={'class': 'form-control'})
-    )
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Digite sua senha'
+    }))
+    
     class Meta:
         model = User
         fields = ['old_password', 'new_password1', 'new_password2']
+
+class NotificationSettingsForm(forms.ModelForm):
+    notifications = forms.BooleanField(
+        required=False,
+        widget=forms.CheckboxInput(),
+        label="Receive email notifications"
+    )
+
+    class Meta:
+        model = User
+        fields = ['notifications']

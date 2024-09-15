@@ -5,9 +5,10 @@ from django.dispatch import receiver
 
 class User(AbstractUser):
     is_writer = models.BooleanField(default=False)
-    is_moderator = models.BooleanField(default=False)
     is_administrator = models.BooleanField(default=False)
     full_name = models.CharField(max_length=100, blank=True)
+    notifications = models.BooleanField(default=False)
+    privacy_policy = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
@@ -26,9 +27,6 @@ class Profile(models.Model):
     youtube = models.URLField(max_length=255, blank=True, null=True)
     tiktok = models.URLField(max_length=255, blank=True, null=True)
     github = models.URLField(max_length=255, blank=True, null=True)
-
-    notifications = models.BooleanField(default=False)
-    privacy_policy = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Profile'

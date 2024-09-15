@@ -5,7 +5,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .models import User
 from django.contrib import messages
 from .models import Profile
-from .forms import EditUserForm, WriterProfileForm
+from .forms import EditUserForm, WriterProfileForm, NotificationSettingsForm
 
 User = get_user_model()
 
@@ -68,27 +68,37 @@ def user_profile_view(request, username):
 @login_required
 def user_settings_view(request, username):
     user = get_object_or_404(User, username=username)
-    profile = get_object_or_404(Profile, user=user)
 
+    # Handle password change form
     if request.user == user:
         if request.method == 'POST':
-            form = PasswordChangeForm(request.user, request.POST)  # Use the built-in form
-            if form.is_valid():
-                user = form.save()
-                update_session_auth_hash(request, user)  # Important to prevent logout
-                messages.success(request, 'Your password was successfully updated!')
-                return redirect('user_settings', username=request.user.username)
-            else:
-                messages.error(request, 'Please correct the errors below.')
+            password_form = PasswordChangeForm(request.user, request.POST)
+            notification_form = NotificationSettingsForm(request.POST, instance=request.user)
+            
+            if 'change_password' in request.POST:
+                if password_form.is_valid():
+                    user = password_form.save()
+                    update_session_auth_hash(request, user)
+                    messages.success(request, 'Your password was successfully updated!')
+                    return redirect('user_settings', username=request.user.username)
+                else:
+                    messages.error(request, 'Please correct the errors below.')
+            elif 'update_notifications' in request.POST:
+                if notification_form.is_valid():
+                    notification_form.save()
+                    messages.success(request, 'Your notification settings were updated!')
+                    return redirect('user_settings', username=request.user.username)
         else:
-            form = PasswordChangeForm(request.user)  # Initialize the form with the user
+            password_form = PasswordChangeForm(request.user)
+            notification_form = NotificationSettingsForm(instance=request.user)
     else:
-        form = None  # Do not show the form if the user is viewing another user's profile
-        
+        password_form = None
+        notification_form = None
+
     return render(request, 'user_menu.html', {
         'user': user,
-        'user_profile': profile,
-        'form': form,  # Pass the form to the template
+        'form': password_form,
+        'notification_form': notification_form,
         'current_url': request.resolver_match.url_name
     })
 

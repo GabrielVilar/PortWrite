@@ -39,12 +39,36 @@
                     {% endif %}
                 </div>
                 <div class="save-changes">
-                    <button type="submit" id="saveChangesBtn" style="display:none;">Change Password</button>
+                    <button type="submit" name="change_password" id="saveChangesBtn" style="display:none;">Change Password</button>
                 </div>
             </form>
         </div>
     </div>
     <div class="form-container-fields ">
-        {{ user.notifications }}
+        <p id="title">Privacidade</p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ notification_form.non_field_errors }}
+            <div class="input-group" id="check-box">
+                {{ notification_form.notifications }}
+                {% if notification_form.notifications.errors %}
+                    <div class="error">{{ notification_form.notifications.errors }}</div>
+                {% endif %}
+                <label for="notifications">Receber notificações por email</label>
+            </div>
+            <div class="save-changes">
+                <button type="submit" name="update_notifications" id="saveNotificationsChanges" style="display:none;">Salvar</button>
+            </div>
+        </form>
+        <div class="politica-privacidade">
+            <p>Nossa<a href="terms"> política de privacidade</a></p>
+        </div>
+        <div class="Delete-account">
+            <p id="title-ap">Apagar conta</p>
+            <p id="sub-title">Uma vez apagada a conta, não é possível voltar atrás, tenha certeza! As suas publicações também deixarão de estar disponíveis ao público.</p>
+            <div class="save-changes">
+                <button type="text" id="DeleteAccountBnt">Apagar Conta</button>
+            </div>
+        </div>
     </div>
 </div>

@@ -34,8 +34,70 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Password form button logic
     var saveChangesBtn = document.getElementById('saveChangesBtn');
-    // Select inputs only inside the 'form-container-fields' div
+    var passwordFormContainer = document.querySelector('.form-writer-container');
+    var passwordInputs = passwordFormContainer.querySelectorAll('input');
+
+    passwordInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (input.value !== input.defaultValue) {
+                saveChangesBtn.style.display = 'block';
+            } else {
+                var anyModified = Array.from(passwordInputs).some(function(input) {
+                    return input.value !== input.defaultValue;
+                });
+                if (!anyModified) {
+                    saveChangesBtn.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    // Notifications form button logic
+    var saveNotificationsBtn = document.getElementById('saveNotificationsChanges');
+    var notificationsFormContainer = document.querySelector('.form-container-fields');
+    var notificationInputs = notificationsFormContainer.querySelectorAll('input');
+
+    notificationInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (input.value !== input.defaultValue) {
+                saveNotificationsBtn.style.display = 'block';
+            } else {
+                var anyModified = Array.from(notificationInputs).some(function(input) {
+                    return input.value !== input.defaultValue;
+                });
+                if (!anyModified) {
+                    saveNotificationsBtn.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    // Notifications form button logic
+    var saveChangesBtnUser = document.getElementById('saveChangesBtn');
+    var saveChangesBtnUserContainer = document.querySelector('.form-container-fields');
+    var userInputs = saveChangesBtnUserContainer.querySelectorAll('input');
+
+    userInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (input.value !== input.defaultValue) {
+                saveChangesBtnUser.style.display = 'block';
+            } else {
+                var anyModified = Array.from(userInputs).some(function(input) {
+                    return input.value !== input.defaultValue;
+                });
+                if (!anyModified) {
+                    saveChangesBtnUser.style.display = 'none';
+                }
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    var saveChangesBtn = document.getElementById('saveChangesBtn');
+    // Select inputs only inside the 'form-writer-container' div
     var formContainer = document.querySelector('.form-writer-container');
     var inputs = formContainer.querySelectorAll('input');
 
@@ -82,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     var saveChangesBtn = document.getElementById('saveChangesBtnWriter');
     // Select inputs only inside the 'form-container-fields' div
@@ -210,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
    
     var charCountElement = document.getElementById('charCount');
     const biographyTextarea = document.getElementById('id_biography');
-    const maxChars = 1500;
+    const maxChars = 2036;
 
     // Add an event listener to track input in biography
     biographyTextarea.addEventListener('input', function() {

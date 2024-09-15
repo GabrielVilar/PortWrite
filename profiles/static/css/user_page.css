@@ -337,6 +337,56 @@ input[type="url"]:focus{
     color: #0056b3;
 }
 
+#check-box{
+    width: 70%;
+    margin-left: 2%;
+}
+
+#check-box label{
+    color: black;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2%;
+}
+
+#saveNotificationsChanges{
+    width: 70px;
+    margin-left: 85%;
+    margin-top: -9%;
+}
+
+.politica-privacidade{
+    margin-left: 2%;
+}
+
+.politica-privacidade p{
+    font-size: 16px;
+}
+
+.Delete-account{
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+#title-ap{
+    font-size: 18px;
+    color: red;
+}
+
+#sub-title{
+    font-size: 15px;
+}
+
+#DeleteAccountBnt{
+    background-color: red;
+    width: 120px;
+    margin-left: 72%;
+}
+
+#DeleteAccountBnt:hover{
+    background-color: rgb(112, 9, 9);
+}
+
 @media (max-width: 1068px) {
     .box-container {
         flex-direction: column; 
@@ -361,6 +411,11 @@ input[type="url"]:focus{
 
     #settings{
         margin-left: 1px;
+    }
+
+    #saveNotificationsChanges{
+        margin-left: 75%;
+        margin-top: -10%;
     }
    
 }
