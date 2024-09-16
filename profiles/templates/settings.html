@@ -3,39 +3,72 @@
 <div class="box-container">
     <p>Configurações</p>
     <div class="form-writer-container" id="settings">
-        <p id="title">Privacidade</p>
-    </div>
-    <div class="form-container-fields">
         <p id="title">Segurança - Trocar senha</p>
         <div class="act-form">
             <form method="POST">
                 {% csrf_token %} 
                 {{ form.non_field_errors }} 
                 <div class="input-group">
-                    <label for="password">Current Password:</label>
+                    <label for="password" id="labes">Current Password:</label>
                     {{ form.old_password }}
+                    <button type="button" class="toggle-password" data-target="id_old_password">
+                        👁️
+                    </button>
                     {% if form.old_password.errors %}
                         <div class="error">{{ form.old_password.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="input-group">
-                    <label for="password1">New Password:</label>
+                    <label for="password1" id="labes">New Password:</label>
                     {{ form.new_password1 }}
+                    <button type="button" class="toggle-password" data-target="id_new_password1">
+                        👁️
+                    </button>
                     {% if form.new_password1.errors %}
                         <div class="error">{{ form.new_password1.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="input-group">
-                    <label for="password2">Repeat New Password:</label>
+                    <label for="password2" id="labes">Repeat New Password:</label>
                     {{ form.new_password2 }}
+                    <button type="button" class="toggle-password" data-target="id_new_password2">
+                       👁️
+                    </button>
                     {% if form.new_password2.errors %}
                         <div class="error">{{ form.new_password2.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="save-changes">
-                    <button type="submit" id="saveChangesBtn" style="display:none;">Change Password</button>
+                    <button type="submit" name="change_password" id="saveChangesBtn" style="display:none;">Change Password</button>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="form-container-fields ">
+        <p id="title">Privacidade</p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ notification_form.non_field_errors }}
+            <div class="input-group" id="check-box">
+                {{ notification_form.notifications }}
+                {% if notification_form.notifications.errors %}
+                    <div class="error">{{ notification_form.notifications.errors }}</div>
+                {% endif %}
+                <label for="notifications">Receber notificações por email</label>
+            </div>
+            <div class="save-changes">
+                <button type="submit" name="update_notifications" id="saveNotificationsChanges" style="display:none;">Salvar</button>
+            </div>
+        </form>
+        <div class="politica-privacidade">
+            <p>Nossa<a href="terms"> política de privacidade</a></p>
+        </div>
+        <div class="Delete-account">
+            <p id="title-ap">Apagar conta</p>
+            <p id="sub-title">Uma vez apagada a conta, não é possível voltar atrás, tenha certeza! As suas publicações também deixarão de estar disponíveis ao público.</p>
+            <div class="save-changes">
+                <button type="text" id="DeleteAccountBnt">Apagar Conta</button>
+            </div>
         </div>
     </div>
 </div>

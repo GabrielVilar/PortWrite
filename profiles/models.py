@@ -5,9 +5,10 @@ from django.dispatch import receiver
 
 class User(AbstractUser):
     is_writer = models.BooleanField(default=False)
-    is_moderator = models.BooleanField(default=False)
     is_administrator = models.BooleanField(default=False)
     full_name = models.CharField(max_length=100, blank=True)
+    notifications = models.BooleanField(default=False)
+    privacy_policy = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
@@ -18,6 +19,7 @@ def user_directory_path(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to=user_directory_path, default='default.png')
+    
     biography = models.TextField(blank=True, null=True)  
     instagram = models.URLField(max_length=255, blank=True, null=True)
     linkedin = models.URLField(max_length=255, blank=True, null=True)
@@ -28,6 +30,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+class WriterRequest(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_approved = models.BooleanField(default=False)
+    request_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - Writer Request"
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

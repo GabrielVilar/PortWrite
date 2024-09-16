@@ -16,7 +16,10 @@
                     <div class="input-group">
                         <label for="biography">Biografia:</label>
                         {{ writer_profile_form.biography }}
-                        <div id="charCount">0 / 1500</div>
+                        <div id="charCount">0 / 2036</div>
+                    </div>
+                    <div class="save-changes">
+                        <button id="saveChangesBtnWriter" type="submit" name="writer_profile_form" style="display:none;">Salvar Mudanças</button>
                     </div>
                     <div id="social-media-links">
                         <p>Links das redes sociais:</p>
@@ -151,9 +154,7 @@
                             Adicionar Rede Social
                         </button>
                     {% endif %}
-                    <div class="save-changes">
-                        <button id="saveChangesBtnWriter" type="submit" name="writer_profile_form" style="display:none;">Salvar Mudanças</button>
-                    </div>
+                    
                 </form>
             </div>
         </div>
@@ -186,7 +187,21 @@
         </div>
     {% else %}
         <div class="form-writer-container">
-            <p id="title">Não é um escrior ainda</p>
+            {% if writer_request_pending %}
+                <div class="request-pending">
+                    <p>O seu pedido para ser escritor foi efectuado com sucesso.<br>Aguarde a aprovação!</p>
+                </div>
+            {% else %}
+                <div class="not-writer">
+                    <p id="title">Ainda não é um escritor?<br>Faça o seu pedido</p>
+                    <div class="save-changes-writer">
+                        <form method="POST" action="{% url 'request_writer' user.username %}">
+                            {% csrf_token %}
+                            <button type="submit">Quero ser um escritor</button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     {% endif %}
     <div class="form-container-fields">
@@ -196,28 +211,28 @@
                 {% csrf_token %}
                 {{ edit_user_form.non_field_errors }} 
                 <div class="input-group">
-                    <label for="fullName">Full Name:</label>
+                    <label for="fullName" id="labes">Full Name:</label>
                     {{ edit_user_form.full_name }}  
                     {% if edit_user_form.full_name.errors %}
                         <div class="error">{{ edit_user_form.full_name.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="input-group">
-                    <label for="email">Email:</label>
+                    <label for="email" id="labes">Email:</label>
                     {{ edit_user_form.email }} 
                     {% if edit_user_form.email.errors %}
                         <div class="error">{{ edit_user_form.email.errors }}</div>
                     {% endif %}             
                 </div>
                 <div class="input-group">
-                    <label for="username">Username:</label>
+                    <label for="username" id="labes">Username:</label>
                     {{ edit_user_form.username }}  
                     {% if edit_user_form.username.errors %}
                         <div class="error">{{ edit_user_form.username.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="save-changes">
-                    <button id="saveChangesBtn" type="submit" name="edit_user_form" style="display:none;">Salvar Mudanças</button>
+                    <button id="saveChangesBtnUser" type="submit" name="edit_user_form" style="display:none;">Salvar Mudanças</button>
                 </div>
             </form>
         </div>

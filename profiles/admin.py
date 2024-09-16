@@ -3,8 +3,8 @@ from django.contrib.auth.admin import UserAdmin
 from .models import User, Profile
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'is_writer', 'is_moderator', 'is_administrator')
-    list_filter = ('is_writer', 'is_moderator', 'is_administrator')
+    list_display = ('username', 'email', 'is_writer', 'is_administrator')
+    list_filter = ('is_writer', 'is_administrator')
     search_fields = ('username', 'email')
     actions = ['make_writer']
 

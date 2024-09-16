@@ -34,20 +34,17 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+   
     var saveChangesBtn = document.getElementById('saveChangesBtn');
-    // Select inputs only inside the 'form-container-fields' div
-    var formContainer = document.querySelector('.form-container-fields');
-    var inputs = formContainer.querySelectorAll('input');
+    var passwordFormContainer = document.querySelector('.form-writer-container');
+    var passwordInputs = passwordFormContainer.querySelectorAll('input');
 
-    // Check if any input field is modified
-    inputs.forEach(function(input) {
+    passwordInputs.forEach(function(input) {
         input.addEventListener('input', function() {
-            // Show the button if the input field value is changed
             if (input.value !== input.defaultValue) {
                 saveChangesBtn.style.display = 'block';
             } else {
-                // Hide the button if no changes are made in all inputs
-                var anyModified = Array.from(inputs).some(function(input) {
+                var anyModified = Array.from(passwordInputs).some(function(input) {
                     return input.value !== input.defaultValue;
                 });
                 if (!anyModified) {
@@ -56,22 +53,54 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+    var saveNotificationsBtn = document.getElementById('saveNotificationsChanges');
+    var notificationsFormContainer = document.querySelector('.form-container-fields');
+    var notificationInputs = notificationsFormContainer.querySelectorAll('input');
+
+    notificationInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (input.value !== input.defaultValue) {
+                saveNotificationsBtn.style.display = 'block';
+            } else {
+                var anyModified = Array.from(notificationInputs).some(function(input) {
+                    return input.value !== input.defaultValue;
+                });
+                if (!anyModified) {
+                    saveNotificationsBtn.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    var saveChangesBtnUser = document.getElementById('saveChangesBtnUser');
+    var saveChangesBtnUserContainer = document.querySelector('.form-container-fields');
+    var userInputs = saveChangesBtnUserContainer.querySelectorAll('input');
+
+    userInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (input.value !== input.defaultValue) {
+                saveChangesBtnUser.style.display = 'block';
+            } else {
+                var anyModified = Array.from(userInputs).some(function(input) {
+                    return input.value !== input.defaultValue;
+                });
+                if (!anyModified) {
+                    saveChangesBtnUser.style.display = 'none';
+                }
+            }
+        });
+    });
+
     var saveChangesBtn = document.getElementById('saveChangesBtnWriter');
-    // Select inputs only inside the 'form-container-fields' div
     var formContainer = document.querySelector('.form-writer-container');
     var inputs = formContainer.querySelectorAll('textarea');
 
-    // Check if any input field is modified
     inputs.forEach(function(input) {
         input.addEventListener('input', function() {
-            // Show the button if the input field value is changed
             if (input.value !== input.defaultValue) {
                 saveChangesBtn.style.display = 'block';
             } else {
-                // Hide the button if no changes are made in all inputs
                 var anyModified = Array.from(inputs).some(function(input) {
                     return input.value !== input.defaultValue;
                 });
@@ -81,21 +110,16 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
-document.addEventListener("DOMContentLoaded", function() {
+
     var saveChangesBtn = document.getElementById('saveChangesBtnWriter');
-    // Select inputs only inside the 'form-container-fields' div
     var formContainer = document.querySelector('.form-writer-container');
     var inputs = formContainer.querySelectorAll('input');
 
-    // Check if any input field is modified
     inputs.forEach(function(input) {
         input.addEventListener('input', function() {
-            // Show the button if the input field value is changed
             if (input.value !== input.defaultValue) {
                 saveChangesBtn.style.display = 'block';
             } else {
-                // Hide the button if no changes are made in all inputs
                 var anyModified = Array.from(inputs).some(function(input) {
                     return input.value !== input.defaultValue;
                 });
@@ -105,9 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
     var charCount = document.getElementById('charCount');
     // Select inputs only inside the 'form-container-fields' div
     var formContainer = document.querySelector('.form-writer-container');
@@ -130,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -210,11 +233,20 @@ document.addEventListener('DOMContentLoaded', function () {
    
     var charCountElement = document.getElementById('charCount');
     const biographyTextarea = document.getElementById('id_biography');
-    const maxChars = 1500;
+    const maxChars = 2036;
 
     // Add an event listener to track input in biography
     biographyTextarea.addEventListener('input', function() {
         const currentLength = biographyTextarea.value.length;
         charCountElement.textContent = `${currentLength} / ${maxChars}`;
+    });
+});
+
+document.querySelectorAll('.toggle-password').forEach(button => {
+    button.addEventListener('click', function () {
+        const target = document.getElementById(this.getAttribute('data-target'));
+        const type = target.getAttribute('type') === 'password' ? 'text' : 'password';
+        target.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🙈';
     });
 });
