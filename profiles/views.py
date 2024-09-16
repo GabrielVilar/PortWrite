@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import User
 from django.contrib import messages
-from .models import Profile
+from .models import Profile, WriterRequest
 from .forms import EditUserForm, WriterProfileForm, NotificationSettingsForm
 
 User = get_user_model()
@@ -15,6 +15,7 @@ def user_profile_view(request, username):
     profile = get_object_or_404(Profile, user=user)
     edit_user_form = EditUserForm(instance=user)
     writer_profile_form = WriterProfileForm(instance=profile)
+    writer_request_pending = WriterRequest.objects.filter(user=user, is_approved=False).exists()
 
     added_social_media = {
         'instagram': bool(profile.instagram),
@@ -62,6 +63,7 @@ def user_profile_view(request, username):
         'edit_user_form': edit_user_form,
         'writer_profile_form': writer_profile_form,
         'added_social_media': added_social_media,
+        'writer_request_pending': writer_request_pending,
         'current_url': request.resolver_match.url_name,
     })
 
@@ -174,3 +176,40 @@ def writer_profile_view(request, username):
     }
     
     return render(request, 'writer_page.html', context)
+
+@login_required
+def request_writer(request, username):
+    user = get_object_or_404(User, username=username)
+    if not user.is_writer:
+        # Check if a request has already been made
+        if not WriterRequest.objects.filter(user=user).exists():
+            WriterRequest.objects.create(user=user)
+            messages.success(request, "Your request to become a writer has been submitted.")
+        else:
+            messages.info(request, "You have already submitted a request.")
+    return redirect('user_profile', username=username)
+
+@login_required
+def user_admin_page_view(request, username):
+    user = get_object_or_404(User, username=username)
+    if not user.is_administrator:
+        return redirect('home')  # Only administrators can access this page
+    
+    writer_requests = WriterRequest.objects.filter(is_approved=False)
+    
+    return render(request, 'user_menu.html', {
+        'user': user,
+        'writer_requests': writer_requests,
+        'current_url': request.resolver_match.url_name
+    })
+
+@login_required
+def approve_writer(request, request_id):
+    writer_request = get_object_or_404(WriterRequest, id=request_id)
+    if request.user.is_administrator:
+        writer_request.user.is_writer = True
+        writer_request.is_approved = True
+        writer_request.user.save()
+        writer_request.save()
+        messages.success(request, f"{writer_request.user.username} has been approved as a writer.")
+    return redirect('adm_page', username=request.user.username)

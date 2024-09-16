@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <h2>Pedidos para ser escritor</h2>
+    <table id="writerRequestTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Data que foi pedido</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in writer_requests %}
+            <tr>
+                <td>{{ request.user.username }}</td>
+                <td>{{ request.request_date }}</td>
+                <td>
+                    <form method="POST" action="{% url 'approve_writer' request.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">Aprovar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#writerRequestTable').DataTable();
+    });
+</script>

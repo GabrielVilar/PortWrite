@@ -11,5 +11,8 @@ urlpatterns = [
     path('<str:username>/create_articles/', views.user_create_articles_view, name='create_articles'),
     path('<str:username>/articles/', views.user_articles_view, name='user_articles'),
     path('<str:username>/profile/', views.writer_profile_view, name='writer_profile'),
+    path('<str:username>/adm-page/', views.user_admin_page_view, name='adm_page'),
+    path('<str:username>/request_writer/', views.request_writer, name='request_writer'),
+    path('approve_writer/<int:request_id>/', views.approve_writer, name='approve_writer'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -34,7 +34,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Password form button logic
+   
     var saveChangesBtn = document.getElementById('saveChangesBtn');
     var passwordFormContainer = document.querySelector('.form-writer-container');
     var passwordInputs = passwordFormContainer.querySelectorAll('input');
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Notifications form button logic
     var saveNotificationsBtn = document.getElementById('saveNotificationsChanges');
     var notificationsFormContainer = document.querySelector('.form-container-fields');
     var notificationInputs = notificationsFormContainer.querySelectorAll('input');
@@ -74,8 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Notifications form button logic
-    var saveChangesBtnUser = document.getElementById('saveChangesBtn');
+    var saveChangesBtnUser = document.getElementById('saveChangesBtnUser');
     var saveChangesBtnUserContainer = document.querySelector('.form-container-fields');
     var userInputs = saveChangesBtnUserContainer.querySelectorAll('input');
 
@@ -93,47 +91,16 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    var saveChangesBtn = document.getElementById('saveChangesBtn');
-    // Select inputs only inside the 'form-writer-container' div
-    var formContainer = document.querySelector('.form-writer-container');
-    var inputs = formContainer.querySelectorAll('input');
-
-    // Check if any input field is modified
-    inputs.forEach(function(input) {
-        input.addEventListener('input', function() {
-            // Show the button if the input field value is changed
-            if (input.value !== input.defaultValue) {
-                saveChangesBtn.style.display = 'block';
-            } else {
-                // Hide the button if no changes are made in all inputs
-                var anyModified = Array.from(inputs).some(function(input) {
-                    return input.value !== input.defaultValue;
-                });
-                if (!anyModified) {
-                    saveChangesBtn.style.display = 'none';
-                }
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
     var saveChangesBtn = document.getElementById('saveChangesBtnWriter');
-    // Select inputs only inside the 'form-container-fields' div
     var formContainer = document.querySelector('.form-writer-container');
     var inputs = formContainer.querySelectorAll('textarea');
 
-    // Check if any input field is modified
     inputs.forEach(function(input) {
         input.addEventListener('input', function() {
-            // Show the button if the input field value is changed
             if (input.value !== input.defaultValue) {
                 saveChangesBtn.style.display = 'block';
             } else {
-                // Hide the button if no changes are made in all inputs
                 var anyModified = Array.from(inputs).some(function(input) {
                     return input.value !== input.defaultValue;
                 });
@@ -143,22 +110,16 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
     var saveChangesBtn = document.getElementById('saveChangesBtnWriter');
-    // Select inputs only inside the 'form-container-fields' div
     var formContainer = document.querySelector('.form-writer-container');
     var inputs = formContainer.querySelectorAll('input');
 
-    // Check if any input field is modified
     inputs.forEach(function(input) {
         input.addEventListener('input', function() {
-            // Show the button if the input field value is changed
             if (input.value !== input.defaultValue) {
                 saveChangesBtn.style.display = 'block';
             } else {
-                // Hide the button if no changes are made in all inputs
                 var anyModified = Array.from(inputs).some(function(input) {
                     return input.value !== input.defaultValue;
                 });
@@ -168,9 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
     var charCount = document.getElementById('charCount');
     // Select inputs only inside the 'form-container-fields' div
     var formContainer = document.querySelector('.form-writer-container');
@@ -193,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
 });
 
 document.addEventListener('DOMContentLoaded', function () {

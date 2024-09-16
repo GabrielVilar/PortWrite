@@ -36,6 +36,7 @@ p{
 
 .act-form{
     margin:3%;
+    margin-bottom: 20%;
 }
 
 .input-group {
@@ -149,9 +150,13 @@ input[type="url"]:focus{
     background-color: #0056b3;
 }
 
-.save-changes #saveChangesBtnWriter{
-    margin-top: -28%;
-    margin-bottom: 20%;
+.save-changes button:focus {
+    outline: none;
+}
+
+#saveChangesBtnWriter{
+    width: 170px;
+   margin-left: 68%;
 }
 
 .error{
@@ -249,7 +254,6 @@ input[type="url"]:focus{
     background-color: #007bff;
     color: white;
     margin-top: 1%;
-    margin-bottom: 20%;
 }
 
 #addSocialMediaBtn:hover{
@@ -387,6 +391,39 @@ input[type="url"]:focus{
     background-color: rgb(112, 9, 9);
 }
 
+.not-writer{
+    margin-top: 20%;
+    text-align: center;
+}
+
+.save-changes-writer button{
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.save-changes-writer button:hover {
+    background-color: #0056b3;
+}
+
+.save-changes-writer button:focus {
+    outline: none;
+}
+
+.request-pending{
+    text-align: center;
+    margin-top: 20%;
+}
+
+.request-pending p{
+    font-size: 16px;
+}
+
 @media (max-width: 1068px) {
     .box-container {
         flex-direction: column; 
@@ -416,6 +453,12 @@ input[type="url"]:focus{
     #saveNotificationsChanges{
         margin-left: 75%;
         margin-top: -10%;
+    }
+    .not-writer{
+        margin-top: 10%;
+    }
+    .request-pending{
+        margin-top: 10%;
     }
    
 }
