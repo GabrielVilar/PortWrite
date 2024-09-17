@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import User
+from articles.models import Article
 from django.contrib import messages
 from .models import Profile, WriterRequest
-from .forms import EditUserForm, WriterProfileForm, NotificationSettingsForm
+from .forms import EditUserForm, WriterProfileForm, NotificationSettingsForm, ArticleForm
 
 User = get_user_model()
 
@@ -159,7 +160,34 @@ def user_edit_view(request, username):
 @login_required
 def user_create_articles_view(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'create_articles.html', {'user': user})
+    
+    # Ensure the user is a writer before allowing article creation
+    if not user.is_writer:
+        messages.error(request, "You need to be a writer to create an article.")
+        return redirect('user_profile', username=user.username)
+    
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = form.save(commit=False)
+            
+            # Associate the article with the current writer user
+            article.writer = user
+            
+            # Get the plain text content from the hidden field
+            #final_content = request.POST.get('final_content', '').strip()
+            #article.content = final_content  # Save only the plain text content
+            
+            article.save()
+            return redirect('home')
+    else:
+        form = ArticleForm()  # Display an empty form for GET requests
+
+    return render(request, 'create_articles.html', {
+        'user': user,
+        'article_form': form,
+        'current_url': request.resolver_match.url_name
+    })
 
 @login_required
 def user_articles_view(request, username):
@@ -167,14 +195,17 @@ def user_articles_view(request, username):
     return render(request, 'user_articles.html', {'user': user})
 
 def writer_profile_view(request, username):
-    writer = get_object_or_404(User, username=username, is_writer=True)
+    writer = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=writer)
-
+    
+    # Get all articles by this writer
+    articles = Article.objects.filter(writer=writer)
+    
     context = {
         'writer': writer,
         'profile': profile,
+        'articles': articles,  # Pass the articles to the template
     }
-    
     return render(request, 'writer_page.html', context)
 
 @login_required

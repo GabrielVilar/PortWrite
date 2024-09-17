@@ -1,1 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/create_articles.css' %}">
+</head>
+<body>
+    <header>
+        {% include 'navbar.html' with show_search=False search_js=False %}
+    </header>
+    <main>
 
+            <div class="article-container">
+                <div class="menu-left">
+                    {% if article.cover_image %}
+                        <div class="cover-img">
+                            <img src="{{ article.cover_image.url }}" alt="Cover Image">
+                            {% if article.cover_image_subtitle %}
+                                <p>{{ article.cover_image_subtitle }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <div class="article-title-main">
+                        {{ article.title }}
+                    </div>
+                    <div class="wtiter-information">
+                        <div class="written-by">
+                            <p>Escrito por: @<a href="{% url 'writer_profile' article.writer.username %}">{{ article.writer.username }}</a></p>
+                        </div>
+                        <div class="published-on">
+                            <p>Publicado em: {{ article.created_at|date:"F d, Y" }}</p>
+                        </div>
+                    </div>
+                    <div class="content-area-main">
+                        <p>{{ article.content }}</p>
+                    </div>
+                    <div class="media-section-main">
+                        {% if article.images %}
+                            <div class="additional-images">
+                                <img src="{{ article.images.url }}" alt="Additional Image">
+                                {% if article.image_subtitle %}
+                                    <p>{{ article.image_subtitle }}</p>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        
+                        {% if article.video %}
+                            <div class="video">
+                                <video controls>
+                                    <source src="{{ article.video.url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        {% elif article.video_url %}
+                            <div class="video">
+                                <iframe src="{{ article.video_url }}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+      
+    </main>
+</body>
+</html>

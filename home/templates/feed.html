@@ -1,74 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/feed.css' %}">
-    </head>
-    <body>
-        <main>
-            <section>
-                <div class="title-container">
-                    <div class ="name-feed">
-                        <h4>Feed</h4>
-                    </div>
-                    <div class="container">
-                        <div class="card">
-                            <div class="icon">
-                                <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-
-                            </div>
-                            <h3>Article</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitorn.</p>
-                            <button class="learn"> <a href="#">Learn more </a> </button> 
-                        </div>
-                        <div class="card">
-                            <div class="icon">
-                                <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-
-                            </div>
-                            <h3>Article</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitorn.</p>
-                            <button class="learn"> <a href="#">Learn more </a> </button> 
-                        </div>
-                        <div class="card">
-                            <div class="icon">
-                                <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-
-                            </div>
-                            <h3>Article</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitorn.</p>
-                            <button class="learn"> <a href="#">Learn more </a> </button> 
-                        </div>
-                        <div class="card">
-                            <div class="icon">
-                                <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-
-                            </div>
-                            <h3>Article</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitorn.</p>
-                            <button class="learn"> <a href="#">Learn more </a> </button> 
-                        </div>
-                        <div class="card">
-                            <div class="icon">
-                                <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-
-                            </div>
-                            <h3>Article</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitorn.</p>
-                            <button class="learn"> <a href="#">Learn more </a> </button> 
-                        </div>
-                        <div class="card">
-                            <div class="icon">
-                                <img src = "https://petitgato.com.br/img/webp/gatos-persas-em-sao-paulo-img-3780.webp" class="image-placeholder">
-
-                            </div>
-                            <h3>Article</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitorn.</p>
-                            <button class="learn"> <a href="#">Learn more </a> </button> 
-                        </div>
-                    </div>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/feed.css' %}">
+</head>
+<body>
+    <main>
+        <section>
+            <div class="title-container">
+                <div class="name-feed">
+                    <h4>Feed</h4>
                 </div>
-            </section>
-        </main>
-    </body>
+                <div class="container">
+                    {% for article in latest_articles %}
+                        <div class="card">
+                            <div class="icon">
+                                {% if article.cover_image %}
+                                    <img src="{{ article.cover_image.url }}" class="image-placeholder" alt="Cover Image">
+                                {% else %}
+                                    <img src="{% static 'images/default-cover-image.png' %}" class="image-placeholder" alt="Default Image">
+                                {% endif %}
+                            </div>
+                            <h3>{{ article.title }}</h3>
+                            <p>{{ article.content|slice:":150" }}...</p>  <!-- Preview of the content (first 150 characters) -->
+                            <button class="learn">
+                                <a href="{% url 'article_detail' slug=article.slug %}">Saiba mais</a>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
 </html>

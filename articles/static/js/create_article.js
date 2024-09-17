@@ -1,56 +1,58 @@
-function addContent(type) {
-    const contentArea = document.getElementById('contentArea');
+document.addEventListener('DOMContentLoaded', function() {
     
-    switch (type) {
-        case 'image':
-            const imgUrl = prompt("Insira a URL da imagem:");
-            if (imgUrl) {
-                contentArea.innerHTML += `<img src="${imgUrl}" alt="Imagem" style="max-width: 100%; margin: 10px 0;">`;
-            }
-            break;
-        case 'text':
-            const text = prompt("Insira o texto:");
-            if (text) {
-                contentArea.innerHTML += `<p>${text}</p>`;
-            }
-            break;
-        case 'grid':
-            const gridHtml = `
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                    <img src="" alt="Foto 1">
-                    <img src="" alt="Foto 2">
-                    <img src="" alt="Foto 3">
-                </div>`;
-            contentArea.innerHTML += gridHtml;
-            break;
-        case 'video':
-            const videoUrl = prompt("Insira a URL do vídeo/áudio:");
-            if (videoUrl) {
-                contentArea.innerHTML += `<video controls style="max-width: 100%; margin: 10px 0;">
-                                             <source src="${videoUrl}" type="video/mp4">
-                                             Seu navegador não suporta vídeo.
-                                           </video>`;
-            }
-            break;
-        case 'embed':
-            const embedCode = prompt("Insira o código incorporado (embed):");
-            if (embedCode) {
-                contentArea.innerHTML += embedCode;
-            }
-            break;
-        default:
-            break;
-    }
-}
+    const coverImageInput = document.querySelector('input[name="cover_image"]');
+    const coverImageDiv = document.querySelector('.cover-img');
+    
+    coverImageInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                coverImageDiv.innerHTML = `<img src="${e.target.result}" alt="Cover Image" style="width:100%; height:auto;" />`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 
-function publishArticle() {
-    const content = document.getElementById('contentArea').innerHTML;
-    if (content.trim()) {
-        alert("Seu artigo foi publicado com sucesso!");
-    } else {
-        alert("O conteúdo está vazio. Adicione algo antes de publicar.");
-    }
-}
+    const imageInput = document.querySelector('input[name="images"]');
+    const videoInput = document.querySelector('input[name="video"]');
+    const contentArea = document.querySelector('.content-area');
 
+    imageInput.addEventListener('change', function(event) {
+        const files = event.target.files;
+        Array.from(files).forEach(file => {
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const subtitle = document.querySelector('input[name="subtitle"]').value;
+                    contentArea.innerHTML += `
+                        <div class="article-image">
+                            <img src="${e.target.result}" alt="Article Image" style="max-width:100%; height:auto;" />
+                            ${subtitle ? `<p class="image-subtitle">${subtitle}</p>` : ''}
+                        </div>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
 
+    videoInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                contentArea.innerHTML += `
+                    <div class="article-video">
+                        <video controls style="max-width:100%; height:auto;">
+                            <source src="${e.target.result}" type="${file.type}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                `;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 
+});

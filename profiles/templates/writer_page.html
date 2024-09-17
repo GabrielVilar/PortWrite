@@ -7,9 +7,9 @@
     <title>{{ writer.username }}'s Profile</title>
     <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'images/favicon.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/writer_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/saved_articles.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {% comment %} <script src="{% static 'js/writer_page.js'%}" defer ></script> {% endcomment %}
 </head>
 <body>
     <header>
@@ -78,6 +78,34 @@
                 <p id="biografia">Biografia:</p>
                 <p id="texto">{{ profile.biography }}</p>
             </div>
+        </div>
+    </div>
+    <!--Here goes all the articles related to this user-->
+    <div class="title-container">
+        <div class ="name-feed">
+            <h4>{{ writer.username }} Artigos Relacionados</h4>
+        </div>
+        <div class="container">
+            {% if articles %}
+                {% for article in articles %}
+                    <div class="card">
+                        <div class="icon">
+                            {% if article.cover_image %}
+                                <img src="{{ article.cover_image.url }}" class="image-placeholder" alt="Cover Image">
+                            {% else %}
+                                <img src="{% static 'images/default-cover-image.png' %}" class="image-placeholder" alt="Default Image">
+                            {% endif %}
+                        </div>
+                        <h3>{{ article.title }}</h3>
+                        <p>{{ article.content|slice:":150" }}...</p> 
+                        <button class="learn">
+                            <a href="{% url 'article_detail' slug=article.slug %}">Saiba mais</a>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum artigo encontrado.</p>
+            {% endif %}
         </div>
     </div>
 </body>

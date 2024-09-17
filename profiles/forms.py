@@ -1,7 +1,9 @@
 from django import forms
 from .models import User
 from .models import Profile
+from articles.models import Article
 from django.contrib.auth.forms import PasswordChangeForm
+
 class ProfilePictureForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -42,31 +44,55 @@ class WriterProfileForm(forms.ModelForm):
     instagram = forms.URLField(
         required=False, 
         label="Instagram",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Link do Instagram'
+        })
     )
 
     linkedin = forms.URLField(
         required=False, 
         label="LinkedIn",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Link do Linkedin'
+        })
     )
 
     facebook = forms.URLField(
         required=False, 
         label="Facebook",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Link do Facebook'
+        })
     )
 
     youtube = forms.URLField(
         required=False, 
         label="YouTube",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Link do Youtube'
+        })
     )
 
     tiktok = forms.URLField(
         required=False, 
         label="TikTok",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Link do Tiktok'
+        })
     )
 
     github = forms.URLField(
         required=False, 
         label="GitHub",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Link do GitHub'
+        })
     )
     
     class Meta:
@@ -108,7 +134,63 @@ class NotificationSettingsForm(forms.ModelForm):
         widget=forms.CheckboxInput(),
         label="Receive email notifications"
     )
-
     class Meta:
         model = User
         fields = ['notifications']
+
+class ArticleForm(forms.ModelForm):
+
+    title = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Escreva aqui o titulo do seu artigo'
+        })
+    )
+
+    cover_image = forms.ImageField(required=False)
+
+    cover_image_subtitle = forms.CharField(
+        required=False,
+        widget= forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Escreva aqui a legenda da imagem se necessário'
+        })
+    )
+
+    content = forms.CharField(
+        required=True,
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Escreva o conteúdo do artigo'
+        })
+    )
+
+    images = forms.ImageField(required=False)
+
+    subtitle = forms.CharField(
+        required=False,
+        widget= forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Digite aqui a legenda da imagem se necessario'
+        })
+    )
+
+    video = forms.FileField(
+        required=False,
+        widget=forms.ClearableFileInput(attrs={
+            'class': 'form-control-file'
+        })
+    )
+
+    video_url = forms.URLField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'URL do vídeo (YouTube, Vimeo, etc.)'
+        })
+    )
+
+    class Meta:
+        model = Article
+        fields = ['title', 'cover_image', 'cover_image_subtitle', 'content','images','subtitle','video','video_url']

@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login as auth_login
 from .forms import CustomAuthenticationForm, SignUpForm
+from articles.models import Article
 
 def home(request):
-    return render(request, 'home.html')
+    
+    latest_articles = Article.objects.order_by('-created_at')[:15]
+
+    return render(request, 'home.html', {
+        'latest_articles': latest_articles,
+    })
 
 def about(request):
     return render(request, 'about.html')

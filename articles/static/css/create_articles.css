@@ -1,17 +1,14 @@
-/* Adicionando espaço abaixo da navbar */
-.container{
-    width: 100%;
-    height: 800px;
+.article-container{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 3%;  /* Adicionando margem superior para deixar espaço para a navbar */
     position: relative;
-    margin-right: auto;
-    margin-left: auto; 
 }
   
-
 h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -24,6 +21,7 @@ h1 {
     margin-bottom: 20px;
     border-radius: 150px;
 }
+
 
 .content-item {
     background-color: #e8f0fe;
@@ -39,13 +37,31 @@ h1 {
 }
 
 .content-area {
-    min-height: 500px;
+    min-height: 200px;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
     background-color: #fff;
     margin-bottom: 20px;
-    
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.content-area-main{
+    min-height: 200px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+
+.content-area:focus{
+    outline: none;
+    border: 1px solid #c2bebe;
 }
 
 .publish-button {
@@ -57,60 +73,144 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     display: block;
-    margin: 0 auto;
+    margin-left: 77%;
+    margin-bottom: 5%;
 }
 
 .publish-button:hover {
     background-color: #0056b3;
 }
 
-.menu-left{
+.publish-button:focus{
+    outline: none;
+}
+
+.menu-left{   
     width: 80%;
-    position: absolute;
     top: 0;
-    left: 1;
-    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .menu-left h1{
+    text-align: left;
     margin-top: 20px ;
     margin-bottom: 20px;
     font-size: 20px;
-
+    margin-left: 10%;
 }
 
 .menu-right {
-
-    justify-items: space-between;
-    width: 30%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 200px;
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 400px;
+    gap: 10px;
+    align-items: center; 
+    margin-top: -3%;
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-bottom: 5%;
+    display: flex;
 }
 
 .title h3 {
     text-align: center;
     margin-bottom: 20px;
-    font-size:15px;
-    
-   
+    font-size:15px;  
 }
 
 .menu-item {
-    background-color: #e8f0fe;
+    background-color: #bac0ca;
     padding: 10px;
-    margin-bottom: 10px;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    margin: 0;
 }
 
 .menu-item:hover {
     background-color: #d1e1fd;
 }
 
+.cover-img{
+    text-align:left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 830px;
+    height: 500px;
+}
+
+.cover-img img{
+    width: 830px;
+    height: 500px;
+}
+
+.article-title{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-bottom: 1px solid #c2bebe;
+}
+
+.article-title-main{
+    margin-top: 3%;
+    color: black;
+    font-weight: bold;
+    font-size: 35px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.wtiter-information{
+    margin-left: 10%;
+    margin-right: 10%;
+    color: black;
+}
+
+.written-by a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.written-by a:hover{
+    text-decoration: none;
+}
+
+.published-on{
+    margin-top: -2%;
+}
+
+#subtitle{
+    color: gray;
+}
+
+.media-section-main{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.add-image-title{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+.add-image{
+    margin-bottom: 3%;
+}
+
+.add-video{
+    margin-bottom: 2%;
+}
+
+.media-section{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Hide the actual file input */
+input[type="file"] {
+    margin-top: 2%;
+    color: transparent;
+}
