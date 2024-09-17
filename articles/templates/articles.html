@@ -14,16 +14,16 @@
     </header>
     <main>
 
-            <div class="article-container">
-                <div class="menu-left">
-                    {% if article.cover_image %}
-                        <div class="cover-img">
-                            <img src="{{ article.cover_image.url }}" alt="Cover Image">
-                            {% if article.cover_image_subtitle %}
-                                <p>{{ article.cover_image_subtitle }}</p>
-                            {% endif %}
-                        </div>
-                    {% endif %}
+        <div class="article-container">
+            <div class="menu-left">
+                {% if article.cover_image %}
+                    <div class="cover-img">
+                        <img src="{{ article.cover_image.url }}" alt="Cover Image">
+                        {% if article.cover_image_subtitle %}
+                            <p>{{ article.cover_image_subtitle }}</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
                     <div class="article-title-main">
                         {{ article.title }}
                     </div>

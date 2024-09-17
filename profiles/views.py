@@ -10,7 +10,7 @@ from .forms import EditUserForm, WriterProfileForm, NotificationSettingsForm, Ar
 
 User = get_user_model()
 
-@login_required
+@login_required(login_url='home')
 def user_profile_view(request, username):
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
@@ -68,7 +68,7 @@ def user_profile_view(request, username):
         'current_url': request.resolver_match.url_name,
     })
 
-@login_required
+@login_required(login_url='home')
 def user_settings_view(request, username):
     user = get_object_or_404(User, username=username)
 
@@ -105,12 +105,12 @@ def user_settings_view(request, username):
         'current_url': request.resolver_match.url_name
     })
 
-@login_required
+@login_required(login_url='home')
 def user_saved_articles_view(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'saved_articles.html', {'user': user})
 
-@login_required
+@login_required(login_url='home')
 def update_profile_picture(request):
     profile = Profile.objects.get(user=request.user)
     
@@ -136,7 +136,7 @@ def update_profile_picture(request):
     
     return redirect('user_profile', username=request.user.username)
 
-@login_required
+@login_required(login_url='home')
 def user_edit_view(request, username):
     user = get_object_or_404(User, username=username)
 
@@ -157,7 +157,7 @@ def user_edit_view(request, username):
         'current_url': request.resolver_match.url_name
     })
 
-@login_required
+@login_required(login_url='home')
 def user_create_articles_view(request, username):
     user = get_object_or_404(User, username=username)
     
@@ -189,7 +189,7 @@ def user_create_articles_view(request, username):
         'current_url': request.resolver_match.url_name
     })
 
-@login_required
+@login_required(login_url='home')
 def user_articles_view(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'user_articles.html', {'user': user})
@@ -208,7 +208,7 @@ def writer_profile_view(request, username):
     }
     return render(request, 'writer_page.html', context)
 
-@login_required
+@login_required(login_url='home')
 def request_writer(request, username):
     user = get_object_or_404(User, username=username)
     if not user.is_writer:
@@ -220,7 +220,7 @@ def request_writer(request, username):
             messages.info(request, "You have already submitted a request.")
     return redirect('user_profile', username=username)
 
-@login_required
+@login_required(login_url='home')
 def user_admin_page_view(request, username):
     user = get_object_or_404(User, username=username)
     if not user.is_administrator:
@@ -234,7 +234,7 @@ def user_admin_page_view(request, username):
         'current_url': request.resolver_match.url_name
     })
 
-@login_required
+@login_required(login_url='home')
 def approve_writer(request, request_id):
     writer_request = get_object_or_404(WriterRequest, id=request_id)
     if request.user.is_administrator:
